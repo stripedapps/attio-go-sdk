@@ -1,0 +1,17 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+api/openapi.yaml
+api_o_auth20.go
+client.go
+configuration.go
+git_push.sh
+go.mod
+go.sum
+model__oauth_introspect_post_200_response.go
+model__oauth_introspect_post_200_response_any_of.go
+model__oauth_introspect_post_200_response_any_of_1.go
+model__oauth_token_post_200_response.go
+response.go
+utils.go

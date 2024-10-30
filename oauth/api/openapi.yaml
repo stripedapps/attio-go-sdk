@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  description: Welcome to the Attio OAuth flow documentation. All of the OAuth APIs
+    are documented here.
+  title: Attio OAuth flow
+  version: "2.0"
+servers:
+- description: Production
+  url: https://app.attio.com
+paths:
+  /authorize:
+    get:
+      description: "Use open source libraries to perform OAuth 2.0. You can find a\
+        \ list of libraries here: https://oauth.net/code/"
+      parameters:
+      - explode: true
+        in: query
+        name: client_id
+        required: true
+        schema:
+          description: The client ID of your integration (this can be found in your
+            integration settings page).
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: response_type
+        required: true
+        schema:
+          description: The response type. This should always be `code`.
+          enum:
+          - code
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: redirect_uri
+        required: true
+        schema:
+          description: The URL to redirect to after the user has authorized the integration.
+            This URL must exactly match one of the registered redirect URLs in your
+            integration settings page.
+          format: uri
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          description: A random string to prevent CSRF attacks. You should set this
+            when starting the OAuth flow and check that when the user is redirected
+            back to your app that it matches this value.
+          type: string
+        style: form
+      responses:
+        "302":
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+          description: "After the user approves the connection, they are sent to the\
+            \ redirect_uri with an authorization code."
+      summary: Authorize Endpoint
+      tags:
+      - OAuth 2.0
+  /oauth/token:
+    post:
+      description: "Use open source libraries to perform OAuth 2.0. You can find a\
+        \ list of libraries here: https://oauth.net/code/"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/_oauth_token_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_oauth_token_post_200_response'
+          description: Success
+      summary: Token Endpoint
+      tags:
+      - OAuth 2.0
+  /oauth/introspect:
+    post:
+      description: "Check whether an access token is valid, and if so, what scopes\
+        \ and identity it grants"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/_oauth_introspect_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_oauth_introspect_post_200_response'
+          description: Success
+      summary: Introspect Endpoint
+      tags:
+      - OAuth 2.0
+components:
+  parameters: {}
+  schemas:
+    _oauth_token_post_request:
+      properties:
+        client_id:
+          description: The client ID of your integration (this can be found in your
+            integration settings page).
+          format: uuid
+          type: string
+        client_secret:
+          description: The client secret of your integration (this can be found in
+            your integration settings page).
+          type: string
+        grant_type:
+          description: The grant type. This should always be `authorization_code`.
+          enum:
+          - authorization_code
+          example: authorization_code
+          type: string
+        code:
+          description: The code which you received after redirecting from the `/authorize`
+            endpoint.
+          type: string
+      required:
+      - client_id
+      - client_secret
+      - code
+      - grant_type
+    _oauth_token_post_200_response:
+      example:
+        access_token: access_token
+        token_type: Bearer
+      properties:
+        access_token:
+          description: An access token for this workspace.
+          type: string
+        token_type:
+          description: The type of token.
+          enum:
+          - Bearer
+          type: string
+      required:
+      - access_token
+      - token_type
+    _oauth_introspect_post_request:
+      properties:
+        token:
+          type: string
+      required:
+      - token
+    _oauth_introspect_post_200_response_anyOf:
+      example:
+        active: true
+      properties:
+        active:
+          enum:
+          - false
+          type: boolean
+      required:
+      - active
+    _oauth_introspect_post_200_response_anyOf_1:
+      properties:
+        active:
+          description: Whether the token is currently active and usable.
+          type: boolean
+        scope:
+          description: A space-separated list of scopes associated with this token
+          type: string
+        client_id:
+          description: The app ID of the OAuth application that requested this token
+          type: string
+        token_type:
+          description: "The type of token, always Bearer for tokens acquired via the\
+            \ OAuth 2.0 flow."
+          enum:
+          - Bearer
+          type: string
+        exp:
+          description: "The time at which this token will expire, if set, as a number\
+            \ of seconds since January 1 1970 UTC."
+          nullable: true
+          type: number
+        iat:
+          description: "The time at which this token was issued, as a number of seconds\
+            \ since January 1 1970 UTC."
+          type: number
+        sub:
+          description: "Since Bearer tokens grant Workspace-level permissions, this\
+            \ property contains the workspace_id."
+          format: uuid
+          type: string
+        aud:
+          description: "The intended audience for this token, for Bearer tokens this\
+            \ is the same as the client_id."
+          type: string
+        iss:
+          description: The issuer of the token. Always attio.com
+          enum:
+          - attio.com
+          type: string
+        authorized_by_workspace_member_id:
+          description: "The ID of the workspace member who authorised this token initially,\
+            \ if known"
+          format: uuid
+          nullable: true
+          type: string
+        workspace_id:
+          description: The ID of the workspace the token is scoped to.
+          format: uuid
+          type: string
+        workspace_name:
+          description: The name of the workspace the token is scoped to.
+          type: string
+        workspace_slug:
+          description: The slug of the workspace the token is scoped to.
+          type: string
+        workspace_logo_url:
+          description: The logo URL of the workspace the token is scoped to.
+          format: uri
+          nullable: true
+          type: string
+      required:
+      - active
+      - aud
+      - authorized_by_workspace_member_id
+      - client_id
+      - exp
+      - iat
+      - iss
+      - scope
+      - sub
+      - token_type
+      - workspace_id
+      - workspace_logo_url
+      - workspace_name
+      - workspace_slug
+    _oauth_introspect_post_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/_oauth_introspect_post_200_response_anyOf'
+      - $ref: '#/components/schemas/_oauth_introspect_post_200_response_anyOf_1'
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

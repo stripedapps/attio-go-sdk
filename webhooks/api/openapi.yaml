@@ -1,0 +1,22 @@
+openapi: 3.1.0
+info:
+  description: "This page contains the schema, and an example, for every type of Webhook\
+    \ that we currently send. Our [using Webhooks guide](/docs/using-webhooks) contains\
+    \ more information about how to use Webhooks."
+  title: Attio Webhook Events
+  version: latest
+servers:
+- description: Your server
+  url: "https://{hostname}/{webhooks}"
+  variables:
+    hostname:
+      default: example.com
+    webhooks:
+      default: webhooks
+paths: {}
+components:
+  parameters: {}
+  schemas: {}
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
