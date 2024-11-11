@@ -12,13 +12,27 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValues type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValues{}
 
+type V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesRecordIdInner struct {
+	// The point in time at which this value was made \"active\". `active_from` can be considered roughly analogous to `created_at`.
+	ActiveFrom time.Time `json:"active_from"`
+	// The point in time at which this value was deactivated. If `null`, the value is active.
+	ActiveUntil NullableTime `json:"active_until"`
+	CreatedByActor V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesEmailAddressesInnerCreatedByActor `json:"created_by_actor"`
+	// The attribute type of the value.
+	AttributeType string `json:"attribute_type"`
+	// The value type of the record
+	Value string `json:"value"`
+}
+
 // V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValues An object with `attribute_slug` keys, and an array of value objects as the values. Attributes slugs (for example `email_addresses` or `name`) can be used, including custom attribute slugs.
 type V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValues struct {
+	RecordId []V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesRecordIdInner `json:"record_id,omitempty"`
 	EmailAddresses []V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesEmailAddressesInner `json:"email_addresses,omitempty"`
 	Name []V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesNameInner `json:"name,omitempty"`
 	Description []V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesDescriptionInner `json:"description,omitempty"`
