@@ -225,7 +225,7 @@ func (o *Status) UnmarshalJSON(data []byte) (err error) {
 	varStatus := _Status{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varStatus)
 
 	if err != nil {

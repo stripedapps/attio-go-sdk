@@ -137,7 +137,7 @@ func (o *OauthTokenPost200Response) UnmarshalJSON(data []byte) (err error) {
 	varOauthTokenPost200Response := _OauthTokenPost200Response{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varOauthTokenPost200Response)
 
 	if err != nil {

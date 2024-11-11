@@ -107,7 +107,7 @@ func (o *V2ObjectsDealsRecordsQueryPost200Response) UnmarshalJSON(data []byte) (
 	varV2ObjectsDealsRecordsQueryPost200Response := _V2ObjectsDealsRecordsQueryPost200Response{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsDealsRecordsQueryPost200Response)
 
 	if err != nil {

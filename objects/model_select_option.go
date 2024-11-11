@@ -165,7 +165,7 @@ func (o *SelectOption) UnmarshalJSON(data []byte) (err error) {
 	varSelectOption := _SelectOption{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varSelectOption)
 
 	if err != nil {

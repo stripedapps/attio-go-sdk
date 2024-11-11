@@ -226,7 +226,7 @@ func (o *V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesTwitterFollowe
 	varV2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesTwitterFollowerCountInner := _V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesTwitterFollowerCountInner{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesTwitterFollowerCountInner)
 
 	if err != nil {

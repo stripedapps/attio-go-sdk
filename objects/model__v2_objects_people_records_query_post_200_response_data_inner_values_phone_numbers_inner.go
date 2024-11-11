@@ -283,7 +283,7 @@ func (o *V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesPhoneNumbersIn
 	varV2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesPhoneNumbersInner := _V2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesPhoneNumbersInner{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsPeopleRecordsQueryPost200ResponseDataInnerValuesPhoneNumbersInner)
 
 	if err != nil {

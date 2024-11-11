@@ -145,7 +145,7 @@ func (o *V2ObjectsPeopleRecordsPutRequestDataValuesPhoneNumbersInner) UnmarshalJ
 	varV2ObjectsPeopleRecordsPutRequestDataValuesPhoneNumbersInner := _V2ObjectsPeopleRecordsPutRequestDataValuesPhoneNumbersInner{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsPeopleRecordsPutRequestDataValuesPhoneNumbersInner)
 
 	if err != nil {

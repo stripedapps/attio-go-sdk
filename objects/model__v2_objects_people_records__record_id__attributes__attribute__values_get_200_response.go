@@ -107,7 +107,7 @@ func (o *V2ObjectsPeopleRecordsRecordIdAttributesAttributeValuesGet200Response) 
 	varV2ObjectsPeopleRecordsRecordIdAttributesAttributeValuesGet200Response := _V2ObjectsPeopleRecordsRecordIdAttributesAttributeValuesGet200Response{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsPeopleRecordsRecordIdAttributesAttributeValuesGet200Response)
 
 	if err != nil {

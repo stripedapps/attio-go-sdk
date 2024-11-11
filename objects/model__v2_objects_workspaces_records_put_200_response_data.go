@@ -164,7 +164,7 @@ func (o *V2ObjectsWorkspacesRecordsPut200ResponseData) UnmarshalJSON(data []byte
 	varV2ObjectsWorkspacesRecordsPut200ResponseData := _V2ObjectsWorkspacesRecordsPut200ResponseData{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varV2ObjectsWorkspacesRecordsPut200ResponseData)
 
 	if err != nil {

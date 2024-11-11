@@ -195,7 +195,7 @@ func (o *StatusId) UnmarshalJSON(data []byte) (err error) {
 	varStatusId := _StatusId{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varStatusId)
 
 	if err != nil {

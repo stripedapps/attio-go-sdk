@@ -491,7 +491,7 @@ func (o *OauthIntrospectPost200ResponseAnyOf1) UnmarshalJSON(data []byte) (err e
 	varOauthIntrospectPost200ResponseAnyOf1 := _OauthIntrospectPost200ResponseAnyOf1{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+	//decoder.DisallowUnknownFields()
 	err = decoder.Decode(&varOauthIntrospectPost200ResponseAnyOf1)
 
 	if err != nil {
