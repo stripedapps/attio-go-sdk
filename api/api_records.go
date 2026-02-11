@@ -43,7 +43,7 @@ func (r ApiV2ObjectsObjectRecordsPostRequest) Execute() (*V2ObjectsObjectRecords
 /*
 V2ObjectsObjectRecordsPost Create a record
 
-Creates a new person, company or other record. This endpoint will throw on conflicts of unique attributes. If you would prefer to update records on conflicts, please use the [Assert record endpoint](/reference/put_v2-objects-object-records) instead.
+Creates a new person, company or other record. This endpoint will throw on conflicts of unique attributes. If you would prefer to update records on conflicts, please use the [Assert record endpoint](/rest-api/endpoint-reference/records/assert-a-record) instead.
 
 Required scopes: `record_permission:read-write`, `object_configuration:read`.
 
@@ -186,7 +186,7 @@ func (r ApiV2ObjectsObjectRecordsPutRequest) Execute() (*V2ObjectsObjectRecordsP
 /*
 V2ObjectsObjectRecordsPut Assert a record
 
-Use this endpoint to create or update people, companies and other records. A matching attribute is used to search for existing records. If a record is found with the same value for the matching attribute, that record will be updated. If no record with the same value for the matching attribute is found, a new record will be created instead. If you would like to avoid matching, please use the [Create record endpoint](/reference/post_v2-objects-object-records).
+Use this endpoint to create or update people, companies and other records. A matching attribute is used to search for existing records. If a record is found with the same value for the matching attribute, that record will be updated. If no record with the same value for the matching attribute is found, a new record will be created instead. If you would like to avoid matching, please use the [Create record endpoint](/rest-api/endpoint-reference/records/create-a-record).
 
 If the matching attribute is a multiselect attribute, new values will be added and existing values will not be deleted. For any other multiselect attribute, all values will be either created or deleted as necessary to match the list of supplied values.
 
@@ -480,7 +480,7 @@ func (r ApiV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGetRequest) Ex
 /*
 V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet List record attribute values
 
-Gets all values for a given attribute on a record. If the attribute is historic, this endpoint has the ability to return all historic values using the `show_historic` query param.
+Gets all values for a given attribute on a record. Historic values can be queried using the `show_historic` query param. Historic values cannot be queried on COMINT (Communication Intelligence) or enriched attributes and the endpoint will return a 400 error if this is attempted. Historic values are sorted from oldest to newest (by `active_from`). Some attributes are subject to billing status and will return an empty array of values if theworkspace being queried does not have the required billing flag enabled.
 
 Required scopes: `record_permission:read`, `object_configuration:read`.
 
@@ -528,6 +528,7 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdAttributesAttributeVal
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", r.showHistoric, "form", "")
 	} else {
 		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", defaultValue, "form", "")
 		r.showHistoric = &defaultValue
 	}
 	if r.limit != nil {
@@ -981,11 +982,11 @@ type ApiV2ObjectsObjectRecordsRecordIdPatchRequest struct {
 	ApiService *RecordsAPIService
 	object string
 	recordId string
-	v2ObjectsObjectRecordsPutRequest *V2ObjectsObjectRecordsPutRequest
+	v2ObjectsObjectRecordsRecordIdPatchRequest *V2ObjectsObjectRecordsRecordIdPatchRequest
 }
 
-func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest V2ObjectsObjectRecordsPutRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
-	r.v2ObjectsObjectRecordsPutRequest = &v2ObjectsObjectRecordsPutRequest
+func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsRecordIdPatchRequest(v2ObjectsObjectRecordsRecordIdPatchRequest V2ObjectsObjectRecordsRecordIdPatchRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
+	r.v2ObjectsObjectRecordsRecordIdPatchRequest = &v2ObjectsObjectRecordsRecordIdPatchRequest
 	return r
 }
 
@@ -994,9 +995,9 @@ func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) Execute() (*V2ObjectsObje
 }
 
 /*
-V2ObjectsObjectRecordsRecordIdPatch Update a record
+V2ObjectsObjectRecordsRecordIdPatch Update a record (append multiselect values)
 
-Use this endpoint to update people, companies and other records by `record_id`. If the update payload includes multiselect attributes, the values supplied will be created and prepended to the list of values that already exist (if any). Use the [Assert record endpoint](/reference/put_v2-objects-object-records) to overwrite or remove multiselect attribute values.
+Use this endpoint to update people, companies, and other records by `record_id`. If the update payload includes multiselect attributes, the values supplied will be created and prepended to the list of values that already exist (if any). Use the `PUT` endpoint to overwrite or remove multiselect attribute values.
 
 Required scopes: `record_permission:read-write`, `object_configuration:read`.
 
@@ -1025,6 +1026,147 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecordsAPIService.V2ObjectsObjectRecordsRecordIdPatch")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2/objects/{object}/records/{record_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"object"+"}", url.PathEscape(parameterValueToString(r.object, "object")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"record_id"+"}", url.PathEscape(parameterValueToString(r.recordId, "recordId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.v2ObjectsObjectRecordsRecordIdPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsRecordIdPatchRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.v2ObjectsObjectRecordsRecordIdPatchRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v V2ObjectsObjectRecordsRecordIdPut400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v V2ObjectsObjectGet404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiV2ObjectsObjectRecordsRecordIdPutRequest struct {
+	ctx context.Context
+	ApiService *RecordsAPIService
+	object string
+	recordId string
+	v2ObjectsObjectRecordsPutRequest *V2ObjectsObjectRecordsPutRequest
+}
+
+func (r ApiV2ObjectsObjectRecordsRecordIdPutRequest) V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest V2ObjectsObjectRecordsPutRequest) ApiV2ObjectsObjectRecordsRecordIdPutRequest {
+	r.v2ObjectsObjectRecordsPutRequest = &v2ObjectsObjectRecordsPutRequest
+	return r
+}
+
+func (r ApiV2ObjectsObjectRecordsRecordIdPutRequest) Execute() (*V2ObjectsObjectRecordsPut200Response, *http.Response, error) {
+	return r.ApiService.V2ObjectsObjectRecordsRecordIdPutExecute(r)
+}
+
+/*
+V2ObjectsObjectRecordsRecordIdPut Update a record (overwrite multiselect values)
+
+Use this endpoint to update people, companies, and other records by `record_id`. If the update payload includes multiselect attributes, the values supplied will overwrite/remove the list of values that already exist (if any). Use the `PATCH` endpoint to append multiselect values without removing those that already exist.
+
+Required scopes: `record_permission:read-write`, `object_configuration:read`.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param object
+ @param recordId
+ @return ApiV2ObjectsObjectRecordsRecordIdPutRequest
+*/
+func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPut(ctx context.Context, object string, recordId string) ApiV2ObjectsObjectRecordsRecordIdPutRequest {
+	return ApiV2ObjectsObjectRecordsRecordIdPutRequest{
+		ApiService: a,
+		ctx: ctx,
+		object: object,
+		recordId: recordId,
+	}
+}
+
+// Execute executes the request
+//  @return V2ObjectsObjectRecordsPut200Response
+func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPutExecute(r ApiV2ObjectsObjectRecordsRecordIdPutRequest) (*V2ObjectsObjectRecordsPut200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2ObjectsObjectRecordsPut200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecordsAPIService.V2ObjectsObjectRecordsRecordIdPut")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1082,7 +1224,7 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v V2ObjectsObjectRecordsRecordIdPatch400Response
+			var v V2ObjectsObjectRecordsRecordIdPut400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1094,6 +1236,132 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v V2ObjectsObjectGet404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiV2ObjectsRecordsSearchPostRequest struct {
+	ctx context.Context
+	ApiService *RecordsAPIService
+	v2ObjectsRecordsSearchPostRequest *V2ObjectsRecordsSearchPostRequest
+}
+
+func (r ApiV2ObjectsRecordsSearchPostRequest) V2ObjectsRecordsSearchPostRequest(v2ObjectsRecordsSearchPostRequest V2ObjectsRecordsSearchPostRequest) ApiV2ObjectsRecordsSearchPostRequest {
+	r.v2ObjectsRecordsSearchPostRequest = &v2ObjectsRecordsSearchPostRequest
+	return r
+}
+
+func (r ApiV2ObjectsRecordsSearchPostRequest) Execute() (*V2ObjectsRecordsSearchPost200Response, *http.Response, error) {
+	return r.ApiService.V2ObjectsRecordsSearchPostExecute(r)
+}
+
+/*
+V2ObjectsRecordsSearchPost Search records
+
+The search records endpoint provides a convenient way to fuzzy search for records across one or more objects.
+The matching strategy employed in this endpoint follows the in-product strategy and will match names, domains, emails, phone numbers and social handles on people and companies, and labels on all other objects.
+Please note, results returned from this endpoint are eventually consistent. For results which are guaranteed to be up to date, please use the record query endpoint instead.
+
+This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
+
+Required scopes: `record_permission:read`, `object_configuration:read`.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiV2ObjectsRecordsSearchPostRequest
+*/
+func (a *RecordsAPIService) V2ObjectsRecordsSearchPost(ctx context.Context) ApiV2ObjectsRecordsSearchPostRequest {
+	return ApiV2ObjectsRecordsSearchPostRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return V2ObjectsRecordsSearchPost200Response
+func (a *RecordsAPIService) V2ObjectsRecordsSearchPostExecute(r ApiV2ObjectsRecordsSearchPostRequest) (*V2ObjectsRecordsSearchPost200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2ObjectsRecordsSearchPost200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecordsAPIService.V2ObjectsRecordsSearchPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2/objects/records/search"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.v2ObjectsRecordsSearchPostRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsRecordsSearchPostRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.v2ObjectsRecordsSearchPostRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v V2ObjectsRecordsSearchPost400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

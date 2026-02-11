@@ -56,7 +56,7 @@ func (dst *V2SelfGet200Response) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2SelfGet200Response) MarshalJSON() ([]byte, error) {
+func (src V2SelfGet200Response) MarshalJSON() ([]byte, error) {
 	if src.V2SelfGet200ResponseAnyOf != nil {
 		return json.Marshal(&src.V2SelfGet200ResponseAnyOf)
 	}

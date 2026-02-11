@@ -14,6 +14,7 @@ package openapi
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -33,7 +34,6 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf struct {
 	ReferencedActorId NullableString `json:"referenced_actor_id"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf
@@ -225,11 +225,6 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf) ToMap() (
 	toSerialize["referenced_actor_type"] = o.ReferencedActorType
 	toSerialize["referenced_actor_id"] = o.ReferencedActorId.Get()
 	toSerialize["attribute_type"] = o.AttributeType
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -262,25 +257,15 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf) Unmarsha
 
 	varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf := _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf{}
 
-	err = json.Unmarshal(data, &varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
 
 	if err != nil {
 		return err
 	}
 
 	*o = V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf(varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "active_from")
-		delete(additionalProperties, "active_until")
-		delete(additionalProperties, "created_by_actor")
-		delete(additionalProperties, "referenced_actor_type")
-		delete(additionalProperties, "referenced_actor_id")
-		delete(additionalProperties, "attribute_type")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

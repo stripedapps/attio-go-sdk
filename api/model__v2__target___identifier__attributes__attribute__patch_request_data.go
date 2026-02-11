@@ -23,14 +23,14 @@ type V2TargetIdentifierAttributesAttributePatchRequestData struct {
 	// The name of the attribute. The title will be visible across Attio's UI.
 	Title *string `json:"title,omitempty"`
 	// A text description for the attribute.
-	Description *string `json:"description,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	// A unique, human-readable slug to access the attribute through URLs and API calls. Formatted in snake case.
 	ApiSlug *string `json:"api_slug,omitempty"`
 	// When `is_required` is `true`, new records/entries must have a value for this attribute. If `false`, values may be `null`. This value does not affect existing data and you do not need to backfill `null` values if changing `is_required` from `false` to `true`.
 	IsRequired *bool `json:"is_required,omitempty"`
 	// Whether or not new values for this attribute must be unique. Uniqueness restrictions are only applied to new data and do not apply retroactively to previously created data.
 	IsUnique *bool `json:"is_unique,omitempty"`
-	DefaultValue *V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue `json:"default_value,omitempty"`
+	DefaultValue NullableV2TargetIdentifierAttributesPostRequestDataDefaultValue `json:"default_value,omitempty"`
 	Config *V2TargetIdentifierAttributesAttributePatchRequestDataConfig `json:"config,omitempty"`
 	// Whether the attribute has been archived or not. See our [archiving guide](/docs/archiving-vs-deleting) for more information on archiving.
 	IsArchived *bool `json:"is_archived,omitempty"`
@@ -88,36 +88,46 @@ func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetTitle(v strin
 	o.Title = &v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *V2TargetIdentifierAttributesAttributePatchRequestData) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) UnsetDescription() {
+	o.Description.Unset()
 }
 
 // GetApiSlug returns the ApiSlug field value if set, zero value otherwise.
@@ -216,36 +226,46 @@ func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetIsUnique(v bo
 	o.IsUnique = &v
 }
 
-// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValue() V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue {
-	if o == nil || IsNil(o.DefaultValue) {
-		var ret V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue
+// GetDefaultValue returns the DefaultValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValue() V2TargetIdentifierAttributesPostRequestDataDefaultValue {
+	if o == nil || IsNil(o.DefaultValue.Get()) {
+		var ret V2TargetIdentifierAttributesPostRequestDataDefaultValue
 		return ret
 	}
-	return *o.DefaultValue
+	return *o.DefaultValue.Get()
 }
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValueOk() (*V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue, bool) {
-	if o == nil || IsNil(o.DefaultValue) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValueOk() (*V2TargetIdentifierAttributesPostRequestDataDefaultValue, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DefaultValue, true
+	return o.DefaultValue.Get(), o.DefaultValue.IsSet()
 }
 
 // HasDefaultValue returns a boolean if a field has been set.
 func (o *V2TargetIdentifierAttributesAttributePatchRequestData) HasDefaultValue() bool {
-	if o != nil && !IsNil(o.DefaultValue) {
+	if o != nil && o.DefaultValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDefaultValue gets a reference to the given V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue and assigns it to the DefaultValue field.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDefaultValue(v V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue) {
-	o.DefaultValue = &v
+// SetDefaultValue gets a reference to the given NullableV2TargetIdentifierAttributesPostRequestDataDefaultValue and assigns it to the DefaultValue field.
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDefaultValue(v V2TargetIdentifierAttributesPostRequestDataDefaultValue) {
+	o.DefaultValue.Set(&v)
+}
+// SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDefaultValueNil() {
+	o.DefaultValue.Set(nil)
+}
+
+// UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) UnsetDefaultValue() {
+	o.DefaultValue.Unset()
 }
 
 // GetConfig returns the Config field value if set, zero value otherwise.
@@ -325,8 +345,8 @@ func (o V2TargetIdentifierAttributesAttributePatchRequestData) ToMap() (map[stri
 	if !IsNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
 	if !IsNil(o.ApiSlug) {
 		toSerialize["api_slug"] = o.ApiSlug
@@ -337,8 +357,8 @@ func (o V2TargetIdentifierAttributesAttributePatchRequestData) ToMap() (map[stri
 	if !IsNil(o.IsUnique) {
 		toSerialize["is_unique"] = o.IsUnique
 	}
-	if !IsNil(o.DefaultValue) {
-		toSerialize["default_value"] = o.DefaultValue
+	if o.DefaultValue.IsSet() {
+		toSerialize["default_value"] = o.DefaultValue.Get()
 	}
 	if !IsNil(o.Config) {
 		toSerialize["config"] = o.Config

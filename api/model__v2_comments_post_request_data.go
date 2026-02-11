@@ -70,7 +70,7 @@ func (dst *V2CommentsPostRequestData) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2CommentsPostRequestData) MarshalJSON() ([]byte, error) {
+func (src V2CommentsPostRequestData) MarshalJSON() ([]byte, error) {
 	if src.V2CommentsPostRequestDataAnyOf != nil {
 		return json.Marshal(&src.V2CommentsPostRequestDataAnyOf)
 	}

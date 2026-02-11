@@ -28,12 +28,14 @@ type V2NotesPostRequestData struct {
 	ParentRecordId string `json:"parent_record_id"`
 	// The note title. The title is plaintext only and has no formatting.
 	Title string `json:"title"`
-	// The format of the note content to be created. The `plaintext` format uses the line feed character `\\n` to create new lines within the note content. Rich text formatting, links and @references are not supported.
+	// Specify the format for the note's content. Choose from: - `plaintext`: Standard text format where `\\n` signifies a new line. - `markdown`: Enables rich text formatting using a subset of Markdown syntax:   - **Headings**: Levels 1-3 (`#`, `##`, `###`).   - **Lists**: Unordered (`-`, `*`, `+`) and ordered (`1.`, `2.`).   - **Text styles**: Bold (`**bold**` or `__bold__`), italic (`*italic*` or `_italic_`), strikethrough (`~~strikethrough~~`), and highlight (`==highlighted==`).   - **Links**: Standard Markdown links (`[link text](https://example.com)`).    *Note: While the Attio interface supports image embeds, they cannot currently be added or retrieved via the API's markdown format.*
 	Format string `json:"format"`
-	// The representation of the note content in the specified format.
+	// The main content of the note, formatted according to the value provided in the `format` field. Use `\\n` for line breaks in `plaintext`. For `markdown`, utilize the supported syntax elements to structure and style your note.
 	Content string `json:"content"`
 	// `created_at` will default to the current time. However, if you wish to backdate a note for migration or other purposes, you can override with a custom `created_at` value. Note that dates before 1970 or in the future are not allowed.
 	CreatedAt *string `json:"created_at,omitempty"`
+	// An optional ID to associate this note with a meeting. If provided, the meeting must exist. Use `null` to explicitly set no meeting association.
+	MeetingId NullableString `json:"meeting_id,omitempty"`
 }
 
 type _V2NotesPostRequestData V2NotesPostRequestData
@@ -212,6 +214,48 @@ func (o *V2NotesPostRequestData) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
+// GetMeetingId returns the MeetingId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *V2NotesPostRequestData) GetMeetingId() string {
+	if o == nil || IsNil(o.MeetingId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MeetingId.Get()
+}
+
+// GetMeetingIdOk returns a tuple with the MeetingId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2NotesPostRequestData) GetMeetingIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MeetingId.Get(), o.MeetingId.IsSet()
+}
+
+// HasMeetingId returns a boolean if a field has been set.
+func (o *V2NotesPostRequestData) HasMeetingId() bool {
+	if o != nil && o.MeetingId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMeetingId gets a reference to the given NullableString and assigns it to the MeetingId field.
+func (o *V2NotesPostRequestData) SetMeetingId(v string) {
+	o.MeetingId.Set(&v)
+}
+// SetMeetingIdNil sets the value for MeetingId to be an explicit nil
+func (o *V2NotesPostRequestData) SetMeetingIdNil() {
+	o.MeetingId.Set(nil)
+}
+
+// UnsetMeetingId ensures that no value is present for MeetingId, not even an explicit nil
+func (o *V2NotesPostRequestData) UnsetMeetingId() {
+	o.MeetingId.Unset()
+}
+
 func (o V2NotesPostRequestData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -229,6 +273,9 @@ func (o V2NotesPostRequestData) ToMap() (map[string]interface{}, error) {
 	toSerialize["content"] = o.Content
 	if !IsNil(o.CreatedAt) {
 		toSerialize["created_at"] = o.CreatedAt
+	}
+	if o.MeetingId.IsSet() {
+		toSerialize["meeting_id"] = o.MeetingId.Get()
 	}
 	return toSerialize, nil
 }

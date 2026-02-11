@@ -42,7 +42,7 @@ func (dst *V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOfTemplate)
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOfTemplate) MarshalJSON() ([]byte, error) {
+func (src V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOfTemplate) MarshalJSON() ([]byte, error) {
 	if src.String != nil {
 		return json.Marshal(&src.String)
 	}

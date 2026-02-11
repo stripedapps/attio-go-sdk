@@ -22,8 +22,10 @@ var _ MappedNullable = &InputValueAnyOf4{}
 
 // InputValueAnyOf4 struct for InputValueAnyOf4
 type InputValueAnyOf4 struct {
-	// A date represents a single calendar year, month and day, independent of timezone. If hours, months, seconds or timezones are provided, they will be trimmed. For example, \"2023\" and \"2023-01\" will be coerced into \"2023-01-01\", and \"2023-01-02\", \"2023-01-02T13:00\", \"2023-01-02T14:00:00\", \"2023-01-02T15:00:00.000000000\", and \"2023-01-02T15:00:00.000000000+02:00\" will all be coerced to \"2023-01-02\". If a timezone is provided that would result in a different calendar date in UTC, the date will be coerced to UTC and then the timezone component will be trimmed. For example, the value \"2023-01-02T23:00:00-10:00\" will be returned as \"2023-01-03\". The maximum date is \"9999-12-31\".
-	Value string `json:"value"`
+	// A UUID or slug to identify the object that the referenced record belongs to.
+	TargetObject string `json:"target_object"`
+	// A UUID to identify the referenced record.
+	TargetRecordId string `json:"target_record_id"`
 }
 
 type _InputValueAnyOf4 InputValueAnyOf4
@@ -32,9 +34,10 @@ type _InputValueAnyOf4 InputValueAnyOf4
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf4(value string) *InputValueAnyOf4 {
+func NewInputValueAnyOf4(targetObject string, targetRecordId string) *InputValueAnyOf4 {
 	this := InputValueAnyOf4{}
-	this.Value = value
+	this.TargetObject = targetObject
+	this.TargetRecordId = targetRecordId
 	return &this
 }
 
@@ -46,28 +49,52 @@ func NewInputValueAnyOf4WithDefaults() *InputValueAnyOf4 {
 	return &this
 }
 
-// GetValue returns the Value field value
-func (o *InputValueAnyOf4) GetValue() string {
+// GetTargetObject returns the TargetObject field value
+func (o *InputValueAnyOf4) GetTargetObject() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Value
+	return o.TargetObject
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetTargetObjectOk returns a tuple with the TargetObject field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf4) GetValueOk() (*string, bool) {
+func (o *InputValueAnyOf4) GetTargetObjectOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.TargetObject, true
 }
 
-// SetValue sets field value
-func (o *InputValueAnyOf4) SetValue(v string) {
-	o.Value = v
+// SetTargetObject sets field value
+func (o *InputValueAnyOf4) SetTargetObject(v string) {
+	o.TargetObject = v
+}
+
+// GetTargetRecordId returns the TargetRecordId field value
+func (o *InputValueAnyOf4) GetTargetRecordId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TargetRecordId
+}
+
+// GetTargetRecordIdOk returns a tuple with the TargetRecordId field value
+// and a boolean to check if the value has been set.
+func (o *InputValueAnyOf4) GetTargetRecordIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TargetRecordId, true
+}
+
+// SetTargetRecordId sets field value
+func (o *InputValueAnyOf4) SetTargetRecordId(v string) {
+	o.TargetRecordId = v
 }
 
 func (o InputValueAnyOf4) MarshalJSON() ([]byte, error) {
@@ -80,7 +107,8 @@ func (o InputValueAnyOf4) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf4) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["value"] = o.Value
+	toSerialize["target_object"] = o.TargetObject
+	toSerialize["target_record_id"] = o.TargetRecordId
 	return toSerialize, nil
 }
 
@@ -89,7 +117,8 @@ func (o *InputValueAnyOf4) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"value",
+		"target_object",
+		"target_record_id",
 	}
 
 	allProperties := make(map[string]interface{})

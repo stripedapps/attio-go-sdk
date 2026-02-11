@@ -22,8 +22,8 @@ var _ MappedNullable = &InputValueAnyOf11{}
 
 // InputValueAnyOf11 struct for InputValueAnyOf11
 type InputValueAnyOf11 struct {
-	// The UUID or status title identifying the selected status.
-	Status string `json:"status"`
+	// A number between 0 and 5 (inclusive) to represent a star rating.
+	Value float32 `json:"value"`
 }
 
 type _InputValueAnyOf11 InputValueAnyOf11
@@ -32,9 +32,9 @@ type _InputValueAnyOf11 InputValueAnyOf11
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf11(status string) *InputValueAnyOf11 {
+func NewInputValueAnyOf11(value float32) *InputValueAnyOf11 {
 	this := InputValueAnyOf11{}
-	this.Status = status
+	this.Value = value
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewInputValueAnyOf11WithDefaults() *InputValueAnyOf11 {
 	return &this
 }
 
-// GetStatus returns the Status field value
-func (o *InputValueAnyOf11) GetStatus() string {
+// GetValue returns the Value field value
+func (o *InputValueAnyOf11) GetValue() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
-	return o.Status
+	return o.Value
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf11) GetStatusOk() (*string, bool) {
+func (o *InputValueAnyOf11) GetValueOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Status, true
+	return &o.Value, true
 }
 
-// SetStatus sets field value
-func (o *InputValueAnyOf11) SetStatus(v string) {
-	o.Status = v
+// SetValue sets field value
+func (o *InputValueAnyOf11) SetValue(v float32) {
+	o.Value = v
 }
 
 func (o InputValueAnyOf11) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o InputValueAnyOf11) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf11) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *InputValueAnyOf11) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"status",
+		"value",
 	}
 
 	allProperties := make(map[string]interface{})

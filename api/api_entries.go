@@ -57,7 +57,7 @@ func (r ApiV2ListsListEntriesEntryIdAttributesAttributeValuesGetRequest) Execute
 /*
 V2ListsListEntriesEntryIdAttributesAttributeValuesGet List attribute values for a list entry
 
-Gets all values for a given attribute on a list entry. If the attribute is historic, this endpoint has the ability to return all historic values using the `show_historic` query param.
+Gets all values for a given attribute on a list entry. This endpoint has the ability to return all historic values using the `show_historic` query param. Historic values are sorted from oldest to newest (by `active_from`).
 
 Required scopes: `list_entry:read`, `list_configuration:read`.
 
@@ -105,6 +105,7 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdAttributesAttributeValuesGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", r.showHistoric, "form", "")
 	} else {
 		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", defaultValue, "form", "")
 		r.showHistoric = &defaultValue
 	}
 	if r.limit != nil {
@@ -151,17 +152,6 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdAttributesAttributeValuesGe
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v V2ListsListGet404Response
@@ -431,11 +421,11 @@ type ApiV2ListsListEntriesEntryIdPatchRequest struct {
 	ApiService *EntriesAPIService
 	list string
 	entryId string
-	v2ListsListEntriesEntryIdPutRequest *V2ListsListEntriesEntryIdPutRequest
+	v2ListsListEntriesEntryIdPatchRequest *V2ListsListEntriesEntryIdPatchRequest
 }
 
-func (r ApiV2ListsListEntriesEntryIdPatchRequest) V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest V2ListsListEntriesEntryIdPutRequest) ApiV2ListsListEntriesEntryIdPatchRequest {
-	r.v2ListsListEntriesEntryIdPutRequest = &v2ListsListEntriesEntryIdPutRequest
+func (r ApiV2ListsListEntriesEntryIdPatchRequest) V2ListsListEntriesEntryIdPatchRequest(v2ListsListEntriesEntryIdPatchRequest V2ListsListEntriesEntryIdPatchRequest) ApiV2ListsListEntriesEntryIdPatchRequest {
+	r.v2ListsListEntriesEntryIdPatchRequest = &v2ListsListEntriesEntryIdPatchRequest
 	return r
 }
 
@@ -486,8 +476,8 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdPatchExecute(r ApiV2ListsLi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ListsListEntriesEntryIdPutRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ListsListEntriesEntryIdPutRequest is required and must be specified")
+	if r.v2ListsListEntriesEntryIdPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ListsListEntriesEntryIdPatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -508,7 +498,7 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdPatchExecute(r ApiV2ListsLi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ListsListEntriesEntryIdPutRequest
+	localVarPostBody = r.v2ListsListEntriesEntryIdPatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -986,11 +976,11 @@ type ApiV2ListsListEntriesQueryPostRequest struct {
 	ctx context.Context
 	ApiService *EntriesAPIService
 	list string
-	v2ObjectsObjectRecordsQueryPostRequest *V2ObjectsObjectRecordsQueryPostRequest
+	v2ListsListEntriesQueryPostRequest *V2ListsListEntriesQueryPostRequest
 }
 
-func (r ApiV2ListsListEntriesQueryPostRequest) V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest V2ObjectsObjectRecordsQueryPostRequest) ApiV2ListsListEntriesQueryPostRequest {
-	r.v2ObjectsObjectRecordsQueryPostRequest = &v2ObjectsObjectRecordsQueryPostRequest
+func (r ApiV2ListsListEntriesQueryPostRequest) V2ListsListEntriesQueryPostRequest(v2ListsListEntriesQueryPostRequest V2ListsListEntriesQueryPostRequest) ApiV2ListsListEntriesQueryPostRequest {
+	r.v2ListsListEntriesQueryPostRequest = &v2ListsListEntriesQueryPostRequest
 	return r
 }
 
@@ -1038,8 +1028,8 @@ func (a *EntriesAPIService) V2ListsListEntriesQueryPostExecute(r ApiV2ListsListE
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ObjectsObjectRecordsQueryPostRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsQueryPostRequest is required and must be specified")
+	if r.v2ListsListEntriesQueryPostRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ListsListEntriesQueryPostRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1060,7 +1050,7 @@ func (a *EntriesAPIService) V2ListsListEntriesQueryPostExecute(r ApiV2ListsListE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ObjectsObjectRecordsQueryPostRequest
+	localVarPostBody = r.v2ListsListEntriesQueryPostRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

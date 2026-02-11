@@ -61,7 +61,7 @@ func (dst *V2WebhooksGet200ResponseDataInnerSubscriptionsInnerFilter) UnmarshalJ
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2WebhooksGet200ResponseDataInnerSubscriptionsInnerFilter) MarshalJSON() ([]byte, error) {
+func (src V2WebhooksGet200ResponseDataInnerSubscriptionsInnerFilter) MarshalJSON() ([]byte, error) {
 	if src.V2WebhooksGet200ResponseDataInnerSubscriptionsInnerFilterAnyOf != nil {
 		return json.Marshal(&src.V2WebhooksGet200ResponseDataInnerSubscriptionsInnerFilterAnyOf)
 	}

@@ -26,7 +26,6 @@ type InputValue struct {
 	InputValueAnyOf12 *InputValueAnyOf12
 	InputValueAnyOf13 *InputValueAnyOf13
 	InputValueAnyOf14 *InputValueAnyOf14
-	InputValueAnyOf15 *InputValueAnyOf15
 	InputValueAnyOf2 *InputValueAnyOf2
 	InputValueAnyOf3 *InputValueAnyOf3
 	InputValueAnyOf4 *InputValueAnyOf4
@@ -35,6 +34,7 @@ type InputValue struct {
 	InputValueAnyOf7 *InputValueAnyOf7
 	InputValueAnyOf8 *InputValueAnyOf8
 	InputValueAnyOf9 *InputValueAnyOf9
+	V2TasksPostRequestDataAssigneesInnerAnyOf1 *V2TasksPostRequestDataAssigneesInnerAnyOf1
 	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1
 	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf
 	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1
@@ -132,19 +132,6 @@ func (dst *InputValue) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.InputValueAnyOf14 = nil
-	}
-
-	// try to unmarshal JSON data into InputValueAnyOf15
-	err = json.Unmarshal(data, &dst.InputValueAnyOf15);
-	if err == nil {
-		jsonInputValueAnyOf15, _ := json.Marshal(dst.InputValueAnyOf15)
-		if string(jsonInputValueAnyOf15) == "{}" { // empty struct
-			dst.InputValueAnyOf15 = nil
-		} else {
-			return nil // data stored in dst.InputValueAnyOf15, return on the first match
-		}
-	} else {
-		dst.InputValueAnyOf15 = nil
 	}
 
 	// try to unmarshal JSON data into InputValueAnyOf2
@@ -251,6 +238,19 @@ func (dst *InputValue) UnmarshalJSON(data []byte) error {
 		dst.InputValueAnyOf9 = nil
 	}
 
+	// try to unmarshal JSON data into V2TasksPostRequestDataAssigneesInnerAnyOf1
+	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataAssigneesInnerAnyOf1);
+	if err == nil {
+		jsonV2TasksPostRequestDataAssigneesInnerAnyOf1, _ := json.Marshal(dst.V2TasksPostRequestDataAssigneesInnerAnyOf1)
+		if string(jsonV2TasksPostRequestDataAssigneesInnerAnyOf1) == "{}" { // empty struct
+			dst.V2TasksPostRequestDataAssigneesInnerAnyOf1 = nil
+		} else {
+			return nil // data stored in dst.V2TasksPostRequestDataAssigneesInnerAnyOf1, return on the first match
+		}
+	} else {
+		dst.V2TasksPostRequestDataAssigneesInnerAnyOf1 = nil
+	}
+
 	// try to unmarshal JSON data into V2TasksPostRequestDataLinkedRecordsInnerAnyOf1
 	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1);
 	if err == nil {
@@ -294,7 +294,7 @@ func (dst *InputValue) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *InputValue) MarshalJSON() ([]byte, error) {
+func (src InputValue) MarshalJSON() ([]byte, error) {
 	if src.InputValueAnyOf != nil {
 		return json.Marshal(&src.InputValueAnyOf)
 	}
@@ -321,10 +321,6 @@ func (src *InputValue) MarshalJSON() ([]byte, error) {
 
 	if src.InputValueAnyOf14 != nil {
 		return json.Marshal(&src.InputValueAnyOf14)
-	}
-
-	if src.InputValueAnyOf15 != nil {
-		return json.Marshal(&src.InputValueAnyOf15)
 	}
 
 	if src.InputValueAnyOf2 != nil {
@@ -357,6 +353,10 @@ func (src *InputValue) MarshalJSON() ([]byte, error) {
 
 	if src.InputValueAnyOf9 != nil {
 		return json.Marshal(&src.InputValueAnyOf9)
+	}
+
+	if src.V2TasksPostRequestDataAssigneesInnerAnyOf1 != nil {
+		return json.Marshal(&src.V2TasksPostRequestDataAssigneesInnerAnyOf1)
 	}
 
 	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 != nil {

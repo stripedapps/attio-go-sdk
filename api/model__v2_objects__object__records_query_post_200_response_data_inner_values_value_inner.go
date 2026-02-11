@@ -13,8 +13,8 @@ package openapi
 
 import (
 	"encoding/json"
-	"gopkg.in/validator.v2"
 	"fmt"
+	"gopkg.in/validator.v2"
 )
 
 // V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner - struct for V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner
@@ -623,6 +623,80 @@ func (obj *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) 
 
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 != nil {
 		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetActualInstanceValue() (interface{}) {
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
 	}
 
 	// all schemas are nil
