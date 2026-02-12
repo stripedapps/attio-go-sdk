@@ -294,7 +294,7 @@ func (dst *OutputValue) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *OutputValue) MarshalJSON() ([]byte, error) {
+func (src OutputValue) MarshalJSON() ([]byte, error) {
 	if src.OutputValueAnyOf != nil {
 		return json.Marshal(&src.OutputValueAnyOf)
 	}

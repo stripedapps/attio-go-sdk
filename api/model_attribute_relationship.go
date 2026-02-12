@@ -23,6 +23,14 @@ var _ MappedNullable = &AttributeRelationship{}
 // AttributeRelationship If this attribute is related to another attribute, this is an object that includes an `id` property that identifies the other attribute. `null` means no relationship exists. See [the help center](https://attio.com/help/reference/managing-your-data/attributes#relationship-attributes) for more details about relationship attributes.
 type AttributeRelationship struct {
 	Id AttributeId `json:"id"`
+	// The slug of the object that the related attribute belongs to.
+	ObjectSlug string `json:"object_slug"`
+	// The title of the related attribute.
+	Title string `json:"title"`
+	// The API slug identifying the related attribute.
+	ApiSlug string `json:"api_slug"`
+	// Whether the related attribute supports selecting multiple values. Combined with the parent attribute's `is_multiselect`, this determines the relationship type: both `false` = one-to-one, parent `true` + related `false` = many-to-one, parent `false` + related `true` = one-to-many, both `true` = many-to-many.
+	IsMultiselect bool `json:"is_multiselect"`
 }
 
 type _AttributeRelationship AttributeRelationship
@@ -31,9 +39,13 @@ type _AttributeRelationship AttributeRelationship
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttributeRelationship(id AttributeId) *AttributeRelationship {
+func NewAttributeRelationship(id AttributeId, objectSlug string, title string, apiSlug string, isMultiselect bool) *AttributeRelationship {
 	this := AttributeRelationship{}
 	this.Id = id
+	this.ObjectSlug = objectSlug
+	this.Title = title
+	this.ApiSlug = apiSlug
+	this.IsMultiselect = isMultiselect
 	return &this
 }
 
@@ -69,6 +81,102 @@ func (o *AttributeRelationship) SetId(v AttributeId) {
 	o.Id = v
 }
 
+// GetObjectSlug returns the ObjectSlug field value
+func (o *AttributeRelationship) GetObjectSlug() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectSlug
+}
+
+// GetObjectSlugOk returns a tuple with the ObjectSlug field value
+// and a boolean to check if the value has been set.
+func (o *AttributeRelationship) GetObjectSlugOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectSlug, true
+}
+
+// SetObjectSlug sets field value
+func (o *AttributeRelationship) SetObjectSlug(v string) {
+	o.ObjectSlug = v
+}
+
+// GetTitle returns the Title field value
+func (o *AttributeRelationship) GetTitle() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Title
+}
+
+// GetTitleOk returns a tuple with the Title field value
+// and a boolean to check if the value has been set.
+func (o *AttributeRelationship) GetTitleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Title, true
+}
+
+// SetTitle sets field value
+func (o *AttributeRelationship) SetTitle(v string) {
+	o.Title = v
+}
+
+// GetApiSlug returns the ApiSlug field value
+func (o *AttributeRelationship) GetApiSlug() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ApiSlug
+}
+
+// GetApiSlugOk returns a tuple with the ApiSlug field value
+// and a boolean to check if the value has been set.
+func (o *AttributeRelationship) GetApiSlugOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ApiSlug, true
+}
+
+// SetApiSlug sets field value
+func (o *AttributeRelationship) SetApiSlug(v string) {
+	o.ApiSlug = v
+}
+
+// GetIsMultiselect returns the IsMultiselect field value
+func (o *AttributeRelationship) GetIsMultiselect() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsMultiselect
+}
+
+// GetIsMultiselectOk returns a tuple with the IsMultiselect field value
+// and a boolean to check if the value has been set.
+func (o *AttributeRelationship) GetIsMultiselectOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsMultiselect, true
+}
+
+// SetIsMultiselect sets field value
+func (o *AttributeRelationship) SetIsMultiselect(v bool) {
+	o.IsMultiselect = v
+}
+
 func (o AttributeRelationship) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +188,10 @@ func (o AttributeRelationship) MarshalJSON() ([]byte, error) {
 func (o AttributeRelationship) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["object_slug"] = o.ObjectSlug
+	toSerialize["title"] = o.Title
+	toSerialize["api_slug"] = o.ApiSlug
+	toSerialize["is_multiselect"] = o.IsMultiselect
 	return toSerialize, nil
 }
 
@@ -89,6 +201,10 @@ func (o *AttributeRelationship) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
+		"object_slug",
+		"title",
+		"api_slug",
+		"is_multiselect",
 	}
 
 	allProperties := make(map[string]interface{})

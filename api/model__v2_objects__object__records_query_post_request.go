@@ -20,13 +20,13 @@ var _ MappedNullable = &V2ObjectsObjectRecordsQueryPostRequest{}
 
 // V2ObjectsObjectRecordsQueryPostRequest struct for V2ObjectsObjectRecordsQueryPostRequest
 type V2ObjectsObjectRecordsQueryPostRequest struct {
-	// An object used to filter results to a subset of results. See the [full guide to filtering and sorting here](/docs/filtering-and-sorting).
+	// An object used to filter results to a subset of results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting).
 	Filter map[string]interface{} `json:"filter,omitempty"`
-	// An object used to sort results. See the [full guide to filtering and sorting here](/docs/filtering-and-sorting).
+	// An object used to sort results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting).
 	Sorts []V2ObjectsObjectRecordsQueryPostRequestSortsInner `json:"sorts,omitempty"`
-	// The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/docs/pagination).
+	// The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination).
 	Limit *float32 `json:"limit,omitempty"`
-	// The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/docs/pagination).
+	// The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination).
 	Offset *float32 `json:"offset,omitempty"`
 }
 

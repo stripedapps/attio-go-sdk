@@ -98,7 +98,7 @@ func (dst *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttri
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner) MarshalJSON() ([]byte, error) {
+func (src V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner) MarshalJSON() ([]byte, error) {
 	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf != nil {
 		return json.Marshal(&src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf)
 	}

@@ -56,7 +56,7 @@ func (dst *V2TasksPostRequestDataLinkedRecordsInner) UnmarshalJSON(data []byte) 
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *V2TasksPostRequestDataLinkedRecordsInner) MarshalJSON() ([]byte, error) {
+func (src V2TasksPostRequestDataLinkedRecordsInner) MarshalJSON() ([]byte, error) {
 	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf != nil {
 		return json.Marshal(&src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf)
 	}

@@ -22,7 +22,7 @@ var _ MappedNullable = &V2TasksPostRequestData{}
 
 // V2TasksPostRequestData struct for V2TasksPostRequestData
 type V2TasksPostRequestData struct {
-	// The text content of the task, in the format specified by the `format` property.
+	// The text content of the task, in the format specified by the `format` property. A max length of 2000 characters is enforced.
 	Content string `json:"content"`
 	// The format of the task content to be created. Rich text formatting, links and @references are not supported.
 	Format string `json:"format"`

@@ -40,8 +40,8 @@ type V2SelfGet200ResponseAnyOf1 struct {
 	Aud string `json:"aud"`
 	// The issuer of the token. Always attio.com
 	Iss string `json:"iss"`
-	// The ID of the workspace member who authorised this token initially, if known
-	AuthorizedByWorkspaceMemberId NullableString `json:"authorized_by_workspace_member_id"`
+	// The ID of the workspace member who authorised this token initially.
+	AuthorizedByWorkspaceMemberId string `json:"authorized_by_workspace_member_id"`
 	// The ID of the workspace the token is scoped to.
 	WorkspaceId string `json:"workspace_id"`
 	// The name of the workspace the token is scoped to.
@@ -58,7 +58,7 @@ type _V2SelfGet200ResponseAnyOf1 V2SelfGet200ResponseAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2SelfGet200ResponseAnyOf1(active bool, scope string, clientId string, tokenType string, exp NullableFloat32, iat float32, sub string, aud string, iss string, authorizedByWorkspaceMemberId NullableString, workspaceId string, workspaceName string, workspaceSlug string, workspaceLogoUrl NullableString) *V2SelfGet200ResponseAnyOf1 {
+func NewV2SelfGet200ResponseAnyOf1(active bool, scope string, clientId string, tokenType string, exp NullableFloat32, iat float32, sub string, aud string, iss string, authorizedByWorkspaceMemberId string, workspaceId string, workspaceName string, workspaceSlug string, workspaceLogoUrl NullableString) *V2SelfGet200ResponseAnyOf1 {
 	this := V2SelfGet200ResponseAnyOf1{}
 	this.Active = active
 	this.Scope = scope
@@ -304,29 +304,27 @@ func (o *V2SelfGet200ResponseAnyOf1) SetIss(v string) {
 }
 
 // GetAuthorizedByWorkspaceMemberId returns the AuthorizedByWorkspaceMemberId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *V2SelfGet200ResponseAnyOf1) GetAuthorizedByWorkspaceMemberId() string {
-	if o == nil || o.AuthorizedByWorkspaceMemberId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.AuthorizedByWorkspaceMemberId.Get()
+	return o.AuthorizedByWorkspaceMemberId
 }
 
 // GetAuthorizedByWorkspaceMemberIdOk returns a tuple with the AuthorizedByWorkspaceMemberId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2SelfGet200ResponseAnyOf1) GetAuthorizedByWorkspaceMemberIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AuthorizedByWorkspaceMemberId.Get(), o.AuthorizedByWorkspaceMemberId.IsSet()
+	return &o.AuthorizedByWorkspaceMemberId, true
 }
 
 // SetAuthorizedByWorkspaceMemberId sets field value
 func (o *V2SelfGet200ResponseAnyOf1) SetAuthorizedByWorkspaceMemberId(v string) {
-	o.AuthorizedByWorkspaceMemberId.Set(&v)
+	o.AuthorizedByWorkspaceMemberId = v
 }
 
 // GetWorkspaceId returns the WorkspaceId field value
@@ -446,7 +444,7 @@ func (o V2SelfGet200ResponseAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["sub"] = o.Sub
 	toSerialize["aud"] = o.Aud
 	toSerialize["iss"] = o.Iss
-	toSerialize["authorized_by_workspace_member_id"] = o.AuthorizedByWorkspaceMemberId.Get()
+	toSerialize["authorized_by_workspace_member_id"] = o.AuthorizedByWorkspaceMemberId
 	toSerialize["workspace_id"] = o.WorkspaceId
 	toSerialize["workspace_name"] = o.WorkspaceName
 	toSerialize["workspace_slug"] = o.WorkspaceSlug

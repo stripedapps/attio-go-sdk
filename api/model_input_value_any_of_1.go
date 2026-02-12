@@ -22,8 +22,8 @@ var _ MappedNullable = &InputValueAnyOf1{}
 
 // InputValueAnyOf1 struct for InputValueAnyOf1
 type InputValueAnyOf1 struct {
-	// Workspace member actors can be referenced by email address as well as actor ID.
-	WorkspaceMemberEmailAddress string `json:"workspace_member_email_address"`
+	// A boolean representing whether the checkbox is checked or not. The string values 'true' and 'false' are also accepted.
+	Value bool `json:"value"`
 }
 
 type _InputValueAnyOf1 InputValueAnyOf1
@@ -32,9 +32,9 @@ type _InputValueAnyOf1 InputValueAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf1(workspaceMemberEmailAddress string) *InputValueAnyOf1 {
+func NewInputValueAnyOf1(value bool) *InputValueAnyOf1 {
 	this := InputValueAnyOf1{}
-	this.WorkspaceMemberEmailAddress = workspaceMemberEmailAddress
+	this.Value = value
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewInputValueAnyOf1WithDefaults() *InputValueAnyOf1 {
 	return &this
 }
 
-// GetWorkspaceMemberEmailAddress returns the WorkspaceMemberEmailAddress field value
-func (o *InputValueAnyOf1) GetWorkspaceMemberEmailAddress() string {
+// GetValue returns the Value field value
+func (o *InputValueAnyOf1) GetValue() bool {
 	if o == nil {
-		var ret string
+		var ret bool
 		return ret
 	}
 
-	return o.WorkspaceMemberEmailAddress
+	return o.Value
 }
 
-// GetWorkspaceMemberEmailAddressOk returns a tuple with the WorkspaceMemberEmailAddress field value
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf1) GetWorkspaceMemberEmailAddressOk() (*string, bool) {
+func (o *InputValueAnyOf1) GetValueOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.WorkspaceMemberEmailAddress, true
+	return &o.Value, true
 }
 
-// SetWorkspaceMemberEmailAddress sets field value
-func (o *InputValueAnyOf1) SetWorkspaceMemberEmailAddress(v string) {
-	o.WorkspaceMemberEmailAddress = v
+// SetValue sets field value
+func (o *InputValueAnyOf1) SetValue(v bool) {
+	o.Value = v
 }
 
 func (o InputValueAnyOf1) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o InputValueAnyOf1) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["workspace_member_email_address"] = o.WorkspaceMemberEmailAddress
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *InputValueAnyOf1) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"workspace_member_email_address",
+		"value",
 	}
 
 	allProperties := make(map[string]interface{})

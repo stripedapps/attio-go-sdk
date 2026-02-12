@@ -25,6 +25,8 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInner struct {
 	Id V2ObjectsObjectRecordsQueryPost200ResponseDataInnerId `json:"id"`
 	// When this record was created.
 	CreatedAt string `json:"created_at"`
+	// A URL that links directly to the record page in the Attio web application.
+	WebUrl string `json:"web_url"`
 	// A record type with an attribute `api_slug` as the key, and an array of value objects as the values.
 	Values map[string][]V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner `json:"values"`
 }
@@ -35,10 +37,11 @@ type _V2ObjectsObjectRecordsQueryPost200ResponseDataInner V2ObjectsObjectRecords
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInner(id V2ObjectsObjectRecordsQueryPost200ResponseDataInnerId, createdAt string, values map[string][]V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) *V2ObjectsObjectRecordsQueryPost200ResponseDataInner {
+func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInner(id V2ObjectsObjectRecordsQueryPost200ResponseDataInnerId, createdAt string, webUrl string, values map[string][]V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) *V2ObjectsObjectRecordsQueryPost200ResponseDataInner {
 	this := V2ObjectsObjectRecordsQueryPost200ResponseDataInner{}
 	this.Id = id
 	this.CreatedAt = createdAt
+	this.WebUrl = webUrl
 	this.Values = values
 	return &this
 }
@@ -99,6 +102,30 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) SetCreatedAt(v str
 	o.CreatedAt = v
 }
 
+// GetWebUrl returns the WebUrl field value
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) GetWebUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WebUrl
+}
+
+// GetWebUrlOk returns a tuple with the WebUrl field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) GetWebUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WebUrl, true
+}
+
+// SetWebUrl sets field value
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) SetWebUrl(v string) {
+	o.WebUrl = v
+}
+
 // GetValues returns the Values field value
 func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) GetValues() map[string][]V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner {
 	if o == nil {
@@ -135,6 +162,7 @@ func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInner) ToMap() (map[string
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["created_at"] = o.CreatedAt
+	toSerialize["web_url"] = o.WebUrl
 	toSerialize["values"] = o.Values
 	return toSerialize, nil
 }
@@ -146,6 +174,7 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInner) UnmarshalJSON(data
 	requiredProperties := []string{
 		"id",
 		"created_at",
+		"web_url",
 		"values",
 	}
 

@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 	"bytes"
 	"fmt"
 )
@@ -23,11 +22,26 @@ var _ MappedNullable = &InputValueAnyOf6{}
 
 // InputValueAnyOf6 struct for InputValueAnyOf6
 type InputValueAnyOf6 struct {
-	// The type of interaction e.g. calendar or email.
-	InteractionType string `json:"interaction_type"`
-	// When the interaction occurred.
-	InteractedAt time.Time `json:"interacted_at"`
-	OwnerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor `json:"owner_actor"`
+	// The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line1 NullableString `json:"line_1"`
+	// The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line2 NullableString `json:"line_2"`
+	// The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line3 NullableString `json:"line_3"`
+	// The fourth line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line4 NullableString `json:"line_4"`
+	// The town, neighborhood or area the location is in.
+	Locality NullableString `json:"locality"`
+	// The state, county, province or region that the location is in.
+	Region NullableString `json:"region"`
+	// The postcode or zip code for the location. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Postcode NullableString `json:"postcode"`
+	// The ISO 3166-1 alpha-2 country code for the country this location is in.
+	CountryCode NullableString `json:"country_code"`
+	// The latitude of the location. Validated by the regular expression `/^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)$/`. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Latitude NullableString `json:"latitude" validate:"regexp=^[-+]?([1-8]?\\\\d(\\\\.\\\\d+)?|90(\\\\.0+)?)$"`
+	// The longitude of the location. Validated by the regular expression `/^[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$/`. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Longitude NullableString `json:"longitude" validate:"regexp=^[-+]?(180(\\\\.0+)?|((1[0-7]\\\\d)|([1-9]?\\\\d))(\\\\.\\\\d+)?)$"`
 }
 
 type _InputValueAnyOf6 InputValueAnyOf6
@@ -36,11 +50,18 @@ type _InputValueAnyOf6 InputValueAnyOf6
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf6(interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) *InputValueAnyOf6 {
+func NewInputValueAnyOf6(line1 NullableString, line2 NullableString, line3 NullableString, line4 NullableString, locality NullableString, region NullableString, postcode NullableString, countryCode NullableString, latitude NullableString, longitude NullableString) *InputValueAnyOf6 {
 	this := InputValueAnyOf6{}
-	this.InteractionType = interactionType
-	this.InteractedAt = interactedAt
-	this.OwnerActor = ownerActor
+	this.Line1 = line1
+	this.Line2 = line2
+	this.Line3 = line3
+	this.Line4 = line4
+	this.Locality = locality
+	this.Region = region
+	this.Postcode = postcode
+	this.CountryCode = countryCode
+	this.Latitude = latitude
+	this.Longitude = longitude
 	return &this
 }
 
@@ -52,76 +73,264 @@ func NewInputValueAnyOf6WithDefaults() *InputValueAnyOf6 {
 	return &this
 }
 
-// GetInteractionType returns the InteractionType field value
-func (o *InputValueAnyOf6) GetInteractionType() string {
-	if o == nil {
+// GetLine1 returns the Line1 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLine1() string {
+	if o == nil || o.Line1.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.InteractionType
+	return *o.Line1.Get()
 }
 
-// GetInteractionTypeOk returns a tuple with the InteractionType field value
+// GetLine1Ok returns a tuple with the Line1 field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf6) GetInteractionTypeOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLine1Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.InteractionType, true
+	return o.Line1.Get(), o.Line1.IsSet()
 }
 
-// SetInteractionType sets field value
-func (o *InputValueAnyOf6) SetInteractionType(v string) {
-	o.InteractionType = v
+// SetLine1 sets field value
+func (o *InputValueAnyOf6) SetLine1(v string) {
+	o.Line1.Set(&v)
 }
 
-// GetInteractedAt returns the InteractedAt field value
-func (o *InputValueAnyOf6) GetInteractedAt() time.Time {
-	if o == nil {
-		var ret time.Time
+// GetLine2 returns the Line2 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLine2() string {
+	if o == nil || o.Line2.Get() == nil {
+		var ret string
 		return ret
 	}
 
-	return o.InteractedAt
+	return *o.Line2.Get()
 }
 
-// GetInteractedAtOk returns a tuple with the InteractedAt field value
+// GetLine2Ok returns a tuple with the Line2 field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf6) GetInteractedAtOk() (*time.Time, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLine2Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.InteractedAt, true
+	return o.Line2.Get(), o.Line2.IsSet()
 }
 
-// SetInteractedAt sets field value
-func (o *InputValueAnyOf6) SetInteractedAt(v time.Time) {
-	o.InteractedAt = v
+// SetLine2 sets field value
+func (o *InputValueAnyOf6) SetLine2(v string) {
+	o.Line2.Set(&v)
 }
 
-// GetOwnerActor returns the OwnerActor field value
-func (o *InputValueAnyOf6) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor {
-	if o == nil {
-		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor
+// GetLine3 returns the Line3 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLine3() string {
+	if o == nil || o.Line3.Get() == nil {
+		var ret string
 		return ret
 	}
 
-	return o.OwnerActor
+	return *o.Line3.Get()
 }
 
-// GetOwnerActorOk returns a tuple with the OwnerActor field value
+// GetLine3Ok returns a tuple with the Line3 field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf6) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLine3Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.OwnerActor, true
+	return o.Line3.Get(), o.Line3.IsSet()
 }
 
-// SetOwnerActor sets field value
-func (o *InputValueAnyOf6) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) {
-	o.OwnerActor = v
+// SetLine3 sets field value
+func (o *InputValueAnyOf6) SetLine3(v string) {
+	o.Line3.Set(&v)
+}
+
+// GetLine4 returns the Line4 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLine4() string {
+	if o == nil || o.Line4.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Line4.Get()
+}
+
+// GetLine4Ok returns a tuple with the Line4 field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLine4Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Line4.Get(), o.Line4.IsSet()
+}
+
+// SetLine4 sets field value
+func (o *InputValueAnyOf6) SetLine4(v string) {
+	o.Line4.Set(&v)
+}
+
+// GetLocality returns the Locality field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLocality() string {
+	if o == nil || o.Locality.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Locality.Get()
+}
+
+// GetLocalityOk returns a tuple with the Locality field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLocalityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Locality.Get(), o.Locality.IsSet()
+}
+
+// SetLocality sets field value
+func (o *InputValueAnyOf6) SetLocality(v string) {
+	o.Locality.Set(&v)
+}
+
+// GetRegion returns the Region field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetRegion() string {
+	if o == nil || o.Region.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Region.Get()
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Region.Get(), o.Region.IsSet()
+}
+
+// SetRegion sets field value
+func (o *InputValueAnyOf6) SetRegion(v string) {
+	o.Region.Set(&v)
+}
+
+// GetPostcode returns the Postcode field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetPostcode() string {
+	if o == nil || o.Postcode.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Postcode.Get()
+}
+
+// GetPostcodeOk returns a tuple with the Postcode field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetPostcodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Postcode.Get(), o.Postcode.IsSet()
+}
+
+// SetPostcode sets field value
+func (o *InputValueAnyOf6) SetPostcode(v string) {
+	o.Postcode.Set(&v)
+}
+
+// GetCountryCode returns the CountryCode field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetCountryCode() string {
+	if o == nil || o.CountryCode.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.CountryCode.Get()
+}
+
+// GetCountryCodeOk returns a tuple with the CountryCode field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetCountryCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CountryCode.Get(), o.CountryCode.IsSet()
+}
+
+// SetCountryCode sets field value
+func (o *InputValueAnyOf6) SetCountryCode(v string) {
+	o.CountryCode.Set(&v)
+}
+
+// GetLatitude returns the Latitude field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLatitude() string {
+	if o == nil || o.Latitude.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Latitude.Get()
+}
+
+// GetLatitudeOk returns a tuple with the Latitude field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLatitudeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Latitude.Get(), o.Latitude.IsSet()
+}
+
+// SetLatitude sets field value
+func (o *InputValueAnyOf6) SetLatitude(v string) {
+	o.Latitude.Set(&v)
+}
+
+// GetLongitude returns the Longitude field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *InputValueAnyOf6) GetLongitude() string {
+	if o == nil || o.Longitude.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Longitude.Get()
+}
+
+// GetLongitudeOk returns a tuple with the Longitude field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf6) GetLongitudeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Longitude.Get(), o.Longitude.IsSet()
+}
+
+// SetLongitude sets field value
+func (o *InputValueAnyOf6) SetLongitude(v string) {
+	o.Longitude.Set(&v)
 }
 
 func (o InputValueAnyOf6) MarshalJSON() ([]byte, error) {
@@ -134,9 +343,16 @@ func (o InputValueAnyOf6) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf6) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["interaction_type"] = o.InteractionType
-	toSerialize["interacted_at"] = o.InteractedAt
-	toSerialize["owner_actor"] = o.OwnerActor
+	toSerialize["line_1"] = o.Line1.Get()
+	toSerialize["line_2"] = o.Line2.Get()
+	toSerialize["line_3"] = o.Line3.Get()
+	toSerialize["line_4"] = o.Line4.Get()
+	toSerialize["locality"] = o.Locality.Get()
+	toSerialize["region"] = o.Region.Get()
+	toSerialize["postcode"] = o.Postcode.Get()
+	toSerialize["country_code"] = o.CountryCode.Get()
+	toSerialize["latitude"] = o.Latitude.Get()
+	toSerialize["longitude"] = o.Longitude.Get()
 	return toSerialize, nil
 }
 
@@ -145,9 +361,16 @@ func (o *InputValueAnyOf6) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"interaction_type",
-		"interacted_at",
-		"owner_actor",
+		"line_1",
+		"line_2",
+		"line_3",
+		"line_4",
+		"locality",
+		"region",
+		"postcode",
+		"country_code",
+		"latitude",
+		"longitude",
 	}
 
 	allProperties := make(map[string]interface{})

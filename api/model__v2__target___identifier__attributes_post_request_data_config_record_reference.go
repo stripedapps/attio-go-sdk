@@ -22,7 +22,7 @@ var _ MappedNullable = &V2TargetIdentifierAttributesPostRequestDataConfigRecordR
 
 // V2TargetIdentifierAttributesPostRequestDataConfigRecordReference Configuration available for attributes of type \"record-reference\".
 type V2TargetIdentifierAttributesPostRequestDataConfigRecordReference struct {
-	// A list of slugs or UUIDs to indicate which objects records are allowed to belong to. Leave empty to to allow records from all object types.
+	// A list of slugs or UUIDs to indicate which objects records are allowed to belong to. If `relationship` is also provided, this must contain only the relationship object.
 	AllowedObjects []string `json:"allowed_objects"`
 }
 

@@ -22,8 +22,8 @@ var _ MappedNullable = &InputValueAnyOf12{}
 
 // InputValueAnyOf12 struct for InputValueAnyOf12
 type InputValueAnyOf12 struct {
-	// A number between 0 and 5 (inclusive) to represent a star rating.
-	Value float32 `json:"value"`
+	// The UUID or select option title identifying the selected select option.
+	Option string `json:"option"`
 }
 
 type _InputValueAnyOf12 InputValueAnyOf12
@@ -32,9 +32,9 @@ type _InputValueAnyOf12 InputValueAnyOf12
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf12(value float32) *InputValueAnyOf12 {
+func NewInputValueAnyOf12(option string) *InputValueAnyOf12 {
 	this := InputValueAnyOf12{}
-	this.Value = value
+	this.Option = option
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewInputValueAnyOf12WithDefaults() *InputValueAnyOf12 {
 	return &this
 }
 
-// GetValue returns the Value field value
-func (o *InputValueAnyOf12) GetValue() float32 {
+// GetOption returns the Option field value
+func (o *InputValueAnyOf12) GetOption() string {
 	if o == nil {
-		var ret float32
+		var ret string
 		return ret
 	}
 
-	return o.Value
+	return o.Option
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetOptionOk returns a tuple with the Option field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf12) GetValueOk() (*float32, bool) {
+func (o *InputValueAnyOf12) GetOptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.Option, true
 }
 
-// SetValue sets field value
-func (o *InputValueAnyOf12) SetValue(v float32) {
-	o.Value = v
+// SetOption sets field value
+func (o *InputValueAnyOf12) SetOption(v string) {
+	o.Option = v
 }
 
 func (o InputValueAnyOf12) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o InputValueAnyOf12) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf12) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["value"] = o.Value
+	toSerialize["option"] = o.Option
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *InputValueAnyOf12) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"value",
+		"option",
 	}
 
 	allProperties := make(map[string]interface{})

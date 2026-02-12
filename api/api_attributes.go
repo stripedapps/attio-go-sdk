@@ -809,6 +809,7 @@ func (a *AttributesAPIService) V2TargetIdentifierAttributesAttributeStatusesGetE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_archived", r.showArchived, "form", "")
 	} else {
 		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "show_archived", defaultValue, "form", "")
 		r.showArchived = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -1348,6 +1349,8 @@ func (r ApiV2TargetIdentifierAttributesPostRequest) Execute() (*V2TargetIdentifi
 V2TargetIdentifierAttributesPost Create an attribute
 
 Creates a new attribute on either an object or a list.
+
+For record-reference attributes, you can optionally create a bidirectional relationship by providing a `relationship` object. This will create two entangled attributes: one on the specified object and a reverse attribute on the related object.
 
 To create an attribute on an object, you must also have the `object_configuration:read-write` scope.
 

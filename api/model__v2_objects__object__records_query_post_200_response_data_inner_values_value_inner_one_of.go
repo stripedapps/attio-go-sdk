@@ -25,7 +25,7 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf st
 	// The point in time at which this value was made \"active\". `active_from` can be considered roughly analogous to `created_at`.
 	ActiveFrom time.Time `json:"active_from"`
 	// The point in time at which this value was deactivated. If `null`, the value is active.
-	ActiveUntil time.Time `json:"active_until"`
+	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor `json:"created_by_actor"`
 	// The type of the referenced actor. [Read more information on actor types here](/docs/actors).
 	ReferencedActorType string `json:"referenced_actor_type"`
@@ -42,7 +42,7 @@ type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf V
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf(activeFrom time.Time, activeUntil time.Time, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, referencedActorType string, referencedActorId NullableString, attributeType string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf {
+func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, referencedActorType string, referencedActorId NullableString, attributeType string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf {
 	this := V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
@@ -86,27 +86,29 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 }
 
 // GetActiveUntil returns the ActiveUntil field value
+// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf) GetActiveUntil() time.Time {
-	if o == nil {
+	if o == nil || o.ActiveUntil.Get() == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return o.ActiveUntil
+	return *o.ActiveUntil.Get()
 }
 
 // GetActiveUntilOk returns a tuple with the ActiveUntil field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf) GetActiveUntilOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ActiveUntil, true
+	return o.ActiveUntil.Get(), o.ActiveUntil.IsSet()
 }
 
 // SetActiveUntil sets field value
 func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf) SetActiveUntil(v time.Time) {
-	o.ActiveUntil = v
+	o.ActiveUntil.Set(&v)
 }
 
 // GetCreatedByActor returns the CreatedByActor field value
@@ -218,7 +220,7 @@ func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf
 func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["active_from"] = o.ActiveFrom
-	toSerialize["active_until"] = o.ActiveUntil
+	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
 	toSerialize["referenced_actor_type"] = o.ReferencedActorType
 	toSerialize["referenced_actor_id"] = o.ReferencedActorId.Get()

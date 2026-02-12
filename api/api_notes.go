@@ -421,8 +421,6 @@ V2NotesPost Create a note
 
 Creates a new note for a given record.
 
-At present, notes can only be created from plaintext without formatting.
-
 Required scopes: `note:read-write`, `object_configuration:read`, `record_permission:read`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

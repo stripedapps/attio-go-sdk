@@ -13,6 +13,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -22,10 +23,11 @@ var _ MappedNullable = &InputValueAnyOf5{}
 
 // InputValueAnyOf5 struct for InputValueAnyOf5
 type InputValueAnyOf5 struct {
-	// A UUID or slug to identify the object that the referenced record belongs to.
-	TargetObject string `json:"target_object"`
-	// A UUID to identify the referenced record.
-	TargetRecordId string `json:"target_record_id"`
+	// The type of interaction e.g. calendar or email.
+	InteractionType string `json:"interaction_type"`
+	// When the interaction occurred.
+	InteractedAt time.Time `json:"interacted_at"`
+	OwnerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor `json:"owner_actor"`
 }
 
 type _InputValueAnyOf5 InputValueAnyOf5
@@ -34,10 +36,11 @@ type _InputValueAnyOf5 InputValueAnyOf5
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf5(targetObject string, targetRecordId string) *InputValueAnyOf5 {
+func NewInputValueAnyOf5(interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) *InputValueAnyOf5 {
 	this := InputValueAnyOf5{}
-	this.TargetObject = targetObject
-	this.TargetRecordId = targetRecordId
+	this.InteractionType = interactionType
+	this.InteractedAt = interactedAt
+	this.OwnerActor = ownerActor
 	return &this
 }
 
@@ -49,52 +52,76 @@ func NewInputValueAnyOf5WithDefaults() *InputValueAnyOf5 {
 	return &this
 }
 
-// GetTargetObject returns the TargetObject field value
-func (o *InputValueAnyOf5) GetTargetObject() string {
+// GetInteractionType returns the InteractionType field value
+func (o *InputValueAnyOf5) GetInteractionType() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TargetObject
+	return o.InteractionType
 }
 
-// GetTargetObjectOk returns a tuple with the TargetObject field value
+// GetInteractionTypeOk returns a tuple with the InteractionType field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf5) GetTargetObjectOk() (*string, bool) {
+func (o *InputValueAnyOf5) GetInteractionTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetObject, true
+	return &o.InteractionType, true
 }
 
-// SetTargetObject sets field value
-func (o *InputValueAnyOf5) SetTargetObject(v string) {
-	o.TargetObject = v
+// SetInteractionType sets field value
+func (o *InputValueAnyOf5) SetInteractionType(v string) {
+	o.InteractionType = v
 }
 
-// GetTargetRecordId returns the TargetRecordId field value
-func (o *InputValueAnyOf5) GetTargetRecordId() string {
+// GetInteractedAt returns the InteractedAt field value
+func (o *InputValueAnyOf5) GetInteractedAt() time.Time {
 	if o == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 
-	return o.TargetRecordId
+	return o.InteractedAt
 }
 
-// GetTargetRecordIdOk returns a tuple with the TargetRecordId field value
+// GetInteractedAtOk returns a tuple with the InteractedAt field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf5) GetTargetRecordIdOk() (*string, bool) {
+func (o *InputValueAnyOf5) GetInteractedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetRecordId, true
+	return &o.InteractedAt, true
 }
 
-// SetTargetRecordId sets field value
-func (o *InputValueAnyOf5) SetTargetRecordId(v string) {
-	o.TargetRecordId = v
+// SetInteractedAt sets field value
+func (o *InputValueAnyOf5) SetInteractedAt(v time.Time) {
+	o.InteractedAt = v
+}
+
+// GetOwnerActor returns the OwnerActor field value
+func (o *InputValueAnyOf5) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor {
+	if o == nil {
+		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor
+		return ret
+	}
+
+	return o.OwnerActor
+}
+
+// GetOwnerActorOk returns a tuple with the OwnerActor field value
+// and a boolean to check if the value has been set.
+func (o *InputValueAnyOf5) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OwnerActor, true
+}
+
+// SetOwnerActor sets field value
+func (o *InputValueAnyOf5) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) {
+	o.OwnerActor = v
 }
 
 func (o InputValueAnyOf5) MarshalJSON() ([]byte, error) {
@@ -107,8 +134,9 @@ func (o InputValueAnyOf5) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf5) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["target_object"] = o.TargetObject
-	toSerialize["target_record_id"] = o.TargetRecordId
+	toSerialize["interaction_type"] = o.InteractionType
+	toSerialize["interacted_at"] = o.InteractedAt
+	toSerialize["owner_actor"] = o.OwnerActor
 	return toSerialize, nil
 }
 
@@ -117,8 +145,9 @@ func (o *InputValueAnyOf5) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"target_object",
-		"target_record_id",
+		"interaction_type",
+		"interacted_at",
+		"owner_actor",
 	}
 
 	allProperties := make(map[string]interface{})

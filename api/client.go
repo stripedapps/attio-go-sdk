@@ -53,11 +53,15 @@ type APIClient struct {
 
 	AttributesAPI *AttributesAPIService
 
+	CallRecordingsAPI *CallRecordingsAPIService
+
 	CommentsAPI *CommentsAPIService
 
 	EntriesAPI *EntriesAPIService
 
 	ListsAPI *ListsAPIService
+
+	MeetingsAPI *MeetingsAPIService
 
 	MetaAPI *MetaAPIService
 
@@ -67,9 +71,13 @@ type APIClient struct {
 
 	RecordsAPI *RecordsAPIService
 
+	SCIMSchemasAPI *SCIMSchemasAPIService
+
 	TasksAPI *TasksAPIService
 
 	ThreadsAPI *ThreadsAPIService
+
+	TranscriptsAPI *TranscriptsAPIService
 
 	WebhooksAPI *WebhooksAPIService
 
@@ -93,15 +101,19 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AttributesAPI = (*AttributesAPIService)(&c.common)
+	c.CallRecordingsAPI = (*CallRecordingsAPIService)(&c.common)
 	c.CommentsAPI = (*CommentsAPIService)(&c.common)
 	c.EntriesAPI = (*EntriesAPIService)(&c.common)
 	c.ListsAPI = (*ListsAPIService)(&c.common)
+	c.MeetingsAPI = (*MeetingsAPIService)(&c.common)
 	c.MetaAPI = (*MetaAPIService)(&c.common)
 	c.NotesAPI = (*NotesAPIService)(&c.common)
 	c.ObjectsAPI = (*ObjectsAPIService)(&c.common)
 	c.RecordsAPI = (*RecordsAPIService)(&c.common)
+	c.SCIMSchemasAPI = (*SCIMSchemasAPIService)(&c.common)
 	c.TasksAPI = (*TasksAPIService)(&c.common)
 	c.ThreadsAPI = (*ThreadsAPIService)(&c.common)
+	c.TranscriptsAPI = (*TranscriptsAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 	c.WorkspaceMembersAPI = (*WorkspaceMembersAPIService)(&c.common)
 
@@ -162,6 +174,10 @@ func typeCheckParameter(obj interface{}, expected string, name string) error {
 
 func parameterValueToString( obj interface{}, key string ) string {
 	if reflect.TypeOf(obj).Kind() != reflect.Ptr {
+		if actualObj, ok := obj.(interface{ GetActualInstanceValue() interface{} }); ok {
+			return fmt.Sprintf("%v", actualObj.GetActualInstanceValue())
+		}
+
 		return fmt.Sprintf("%v", obj)
 	}
 	var param,ok = obj.(MappedNullable)
@@ -529,10 +545,7 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	if err != nil {
 		return err
 	}
-	err = file.Close()
-	if err != nil {
-		return err
-	}
+	defer file.Close()
 
 	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
 	if err != nil {
