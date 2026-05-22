@@ -26,6 +26,7 @@ type V2TasksPost400Response struct {
 	Type string `json:"type"`
 	Code string `json:"code"`
 	Message string `json:"message"`
+	ValidationErrors []ValidationError `json:"validation_errors,omitempty"`
 }
 
 type _V2TasksPost400Response V2TasksPost400Response

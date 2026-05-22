@@ -26,6 +26,7 @@ type V2TargetIdentifierAttributesPost400Response struct {
 	Type string `json:"type"`
 	Code string `json:"code"`
 	Message string `json:"message"`
+	ValidationErrors []ValidationError `json:"validation_errors,omitempty"`
 }
 
 type _V2TargetIdentifierAttributesPost400Response V2TargetIdentifierAttributesPost400Response

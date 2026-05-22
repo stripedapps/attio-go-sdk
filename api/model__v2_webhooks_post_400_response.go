@@ -26,6 +26,7 @@ type V2WebhooksPost400Response struct {
 	Type string `json:"type"`
 	Code string `json:"code"`
 	Message string `json:"message"`
+	ValidationErrors []ValidationError `json:"validation_errors,omitempty"`
 }
 
 type _V2WebhooksPost400Response V2WebhooksPost400Response

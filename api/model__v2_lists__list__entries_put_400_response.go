@@ -26,6 +26,7 @@ type V2ListsListEntriesPut400Response struct {
 	Type string `json:"type"`
 	Code string `json:"code"`
 	Message string `json:"message"`
+	ValidationErrors []ValidationError `json:"validation_errors,omitempty"`
 }
 
 type _V2ListsListEntriesPut400Response V2ListsListEntriesPut400Response
