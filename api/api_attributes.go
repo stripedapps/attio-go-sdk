@@ -41,7 +41,7 @@ V2TargetIdentifierAttributesAttributeGet Get an attribute
 
 Gets information about a single attribute on either an object or a list.
 
-Required scopes: `object_configuration:read`.
+When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -170,7 +170,7 @@ V2TargetIdentifierAttributesAttributeOptionsGet List select options
 
 Lists all select options for a particular attribute on either an object or a list.
 
-Required scopes: `object_configuration:read`.
+When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -303,7 +303,7 @@ V2TargetIdentifierAttributesAttributeOptionsOptionPatch Update a select option
 
 Updates a select option on an attribute on either an object or a list.
 
-Required scopes: `object_configuration:read-write`.
+When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -462,7 +462,7 @@ V2TargetIdentifierAttributesAttributeOptionsPost Create a select option
 
 Adds a select option to a select attribute on an object or a list.
 
-Required scopes: `object_configuration:read-write`.
+When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -618,7 +618,7 @@ V2TargetIdentifierAttributesAttributePatch Update an attribute
 
 Updates a single attribute on a given object or list.
 
-Required scopes: `object_configuration:read-write`.
+When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -763,7 +763,7 @@ V2TargetIdentifierAttributesAttributeStatusesGet List statuses
 
 Lists all statuses for a particular status attribute on either an object or a list.
 
-Required scopes: `object_configuration:read`.
+When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -809,7 +809,6 @@ func (a *AttributesAPIService) V2TargetIdentifierAttributesAttributeStatusesGetE
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_archived", r.showArchived, "form", "")
 	} else {
 		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "show_archived", defaultValue, "form", "")
 		r.showArchived = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -899,7 +898,7 @@ V2TargetIdentifierAttributesAttributeStatusesPost Create a status
 
 Add a new status to a status attribute on either an object or a list.
 
-Required scopes: `object_configuration:read-write`.
+When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -1056,7 +1055,7 @@ V2TargetIdentifierAttributesAttributeStatusesStatusPatch Update a status
 
 Update a status on an status attribute on either an object or a list.
 
-Required scopes: `object_configuration:read-write`.
+When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target
@@ -1226,7 +1225,7 @@ V2TargetIdentifierAttributesGet List attributes
 
 Lists all attributes defined on a specific object or list. Attributes are returned in the order that they are sorted by in the UI.
 
-Required scopes: `object_configuration:read`.
+When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param target

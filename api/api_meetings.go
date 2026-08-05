@@ -90,7 +90,7 @@ func (r ApiV2MeetingsGetRequest) Execute() (*V2MeetingsGet200Response, *http.Res
 /*
 V2MeetingsGet List meetings
 
-Lists all meetings in the workspace using a deterministic sort order.
+Lists all meetings in the workspace using a deterministic sort order. When both the `participants` and `linked_record_id` filters are supplied, they are combined with OR: meetings that match either filter are returned.
 
 This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
 
@@ -131,7 +131,6 @@ func (a *MeetingsAPIService) V2MeetingsGetExecute(r ApiV2MeetingsGetRequest) (*V
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
 		var defaultValue int32 = 50
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}
 	if r.cursor != nil {
@@ -147,14 +146,12 @@ func (a *MeetingsAPIService) V2MeetingsGetExecute(r ApiV2MeetingsGetRequest) (*V
 		parameterAddToHeaderOrQuery(localVarQueryParams, "participants", r.participants, "form", "")
 	} else {
 		var defaultValue string = ""
-		parameterAddToHeaderOrQuery(localVarQueryParams, "participants", defaultValue, "form", "")
 		r.participants = &defaultValue
 	}
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
 		var defaultValue string = "start_asc"
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
 		r.sort = &defaultValue
 	}
 	if r.endsFrom != nil {
@@ -167,7 +164,6 @@ func (a *MeetingsAPIService) V2MeetingsGetExecute(r ApiV2MeetingsGetRequest) (*V
 		parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", r.timezone, "form", "")
 	} else {
 		var defaultValue string = "UTC"
-		parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", defaultValue, "form", "")
 		r.timezone = &defaultValue
 	}
 	// to determine the Content-Type header
@@ -357,11 +353,11 @@ func (r ApiV2MeetingsPostRequest) Execute() (*V2MeetingsPost200Response, *http.R
 }
 
 /*
-V2MeetingsPost Find or create a meeting
+V2MeetingsPost Create a meeting
 
-Finds an existing meeting or creates a new one if it doesn't yet exist. [Please see here](/rest-api/guides/syncing-meetings) for a full guide on syncing meetings to Attio.
+Creates a new meeting. [See here](/rest-api/guides/syncing-meetings) for guidance on avoiding duplicate meetings.
 
-This endpoint is in alpha and may be subject to breaking changes as we gather feedback.
+This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
 
 Required scopes: `meeting:read-write`, `record_permission:read`.
 

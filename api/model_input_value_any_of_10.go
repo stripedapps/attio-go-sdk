@@ -22,8 +22,10 @@ var _ MappedNullable = &InputValueAnyOf10{}
 
 // InputValueAnyOf10 struct for InputValueAnyOf10
 type InputValueAnyOf10 struct {
-	// The UUID or status title identifying the selected status.
-	Status string `json:"status"`
+	// A phone number which is either a) prefixed with a country code (e.g. `+44....`) or b) a local number, where `country_code` is specified in addition.
+	OriginalPhoneNumber string `json:"original_phone_number"`
+	// The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to. Optional if `original_phone_number` includes a country code prefix.
+	CountryCode NullableString `json:"country_code,omitempty"`
 }
 
 type _InputValueAnyOf10 InputValueAnyOf10
@@ -32,9 +34,9 @@ type _InputValueAnyOf10 InputValueAnyOf10
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf10(status string) *InputValueAnyOf10 {
+func NewInputValueAnyOf10(originalPhoneNumber string) *InputValueAnyOf10 {
 	this := InputValueAnyOf10{}
-	this.Status = status
+	this.OriginalPhoneNumber = originalPhoneNumber
 	return &this
 }
 
@@ -46,28 +48,70 @@ func NewInputValueAnyOf10WithDefaults() *InputValueAnyOf10 {
 	return &this
 }
 
-// GetStatus returns the Status field value
-func (o *InputValueAnyOf10) GetStatus() string {
+// GetOriginalPhoneNumber returns the OriginalPhoneNumber field value
+func (o *InputValueAnyOf10) GetOriginalPhoneNumber() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Status
+	return o.OriginalPhoneNumber
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetOriginalPhoneNumberOk returns a tuple with the OriginalPhoneNumber field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf10) GetStatusOk() (*string, bool) {
+func (o *InputValueAnyOf10) GetOriginalPhoneNumberOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Status, true
+	return &o.OriginalPhoneNumber, true
 }
 
-// SetStatus sets field value
-func (o *InputValueAnyOf10) SetStatus(v string) {
-	o.Status = v
+// SetOriginalPhoneNumber sets field value
+func (o *InputValueAnyOf10) SetOriginalPhoneNumber(v string) {
+	o.OriginalPhoneNumber = v
+}
+
+// GetCountryCode returns the CountryCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InputValueAnyOf10) GetCountryCode() string {
+	if o == nil || IsNil(o.CountryCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CountryCode.Get()
+}
+
+// GetCountryCodeOk returns a tuple with the CountryCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InputValueAnyOf10) GetCountryCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CountryCode.Get(), o.CountryCode.IsSet()
+}
+
+// HasCountryCode returns a boolean if a field has been set.
+func (o *InputValueAnyOf10) HasCountryCode() bool {
+	if o != nil && o.CountryCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCountryCode gets a reference to the given NullableString and assigns it to the CountryCode field.
+func (o *InputValueAnyOf10) SetCountryCode(v string) {
+	o.CountryCode.Set(&v)
+}
+// SetCountryCodeNil sets the value for CountryCode to be an explicit nil
+func (o *InputValueAnyOf10) SetCountryCodeNil() {
+	o.CountryCode.Set(nil)
+}
+
+// UnsetCountryCode ensures that no value is present for CountryCode, not even an explicit nil
+func (o *InputValueAnyOf10) UnsetCountryCode() {
+	o.CountryCode.Unset()
 }
 
 func (o InputValueAnyOf10) MarshalJSON() ([]byte, error) {
@@ -80,7 +124,10 @@ func (o InputValueAnyOf10) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf10) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status
+	toSerialize["original_phone_number"] = o.OriginalPhoneNumber
+	if o.CountryCode.IsSet() {
+		toSerialize["country_code"] = o.CountryCode.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -89,7 +136,7 @@ func (o *InputValueAnyOf10) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"status",
+		"original_phone_number",
 	}
 
 	allProperties := make(map[string]interface{})

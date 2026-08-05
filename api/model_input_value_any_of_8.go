@@ -13,6 +13,8 @@ package openapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the InputValueAnyOf8 type satisfies the MappedNullable interface at compile time
@@ -20,20 +22,19 @@ var _ MappedNullable = &InputValueAnyOf8{}
 
 // InputValueAnyOf8 struct for InputValueAnyOf8
 type InputValueAnyOf8 struct {
-	// The first name.
-	FirstName *string `json:"first_name,omitempty"`
-	// The last name.
-	LastName *string `json:"last_name,omitempty"`
-	// The full name.
-	FullName *string `json:"full_name,omitempty"`
+	// Numbers are persisted as 64 bit floats.
+	Value float32 `json:"value"`
 }
+
+type _InputValueAnyOf8 InputValueAnyOf8
 
 // NewInputValueAnyOf8 instantiates a new InputValueAnyOf8 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf8() *InputValueAnyOf8 {
+func NewInputValueAnyOf8(value float32) *InputValueAnyOf8 {
 	this := InputValueAnyOf8{}
+	this.Value = value
 	return &this
 }
 
@@ -45,100 +46,28 @@ func NewInputValueAnyOf8WithDefaults() *InputValueAnyOf8 {
 	return &this
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
-func (o *InputValueAnyOf8) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName) {
-		var ret string
+// GetValue returns the Value field value
+func (o *InputValueAnyOf8) GetValue() float32 {
+	if o == nil {
+		var ret float32
 		return ret
 	}
-	return *o.FirstName
+
+	return o.Value
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf8) GetFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FirstName) {
+func (o *InputValueAnyOf8) GetValueOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FirstName, true
+	return &o.Value, true
 }
 
-// HasFirstName returns a boolean if a field has been set.
-func (o *InputValueAnyOf8) HasFirstName() bool {
-	if o != nil && !IsNil(o.FirstName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
-func (o *InputValueAnyOf8) SetFirstName(v string) {
-	o.FirstName = &v
-}
-
-// GetLastName returns the LastName field value if set, zero value otherwise.
-func (o *InputValueAnyOf8) GetLastName() string {
-	if o == nil || IsNil(o.LastName) {
-		var ret string
-		return ret
-	}
-	return *o.LastName
-}
-
-// GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InputValueAnyOf8) GetLastNameOk() (*string, bool) {
-	if o == nil || IsNil(o.LastName) {
-		return nil, false
-	}
-	return o.LastName, true
-}
-
-// HasLastName returns a boolean if a field has been set.
-func (o *InputValueAnyOf8) HasLastName() bool {
-	if o != nil && !IsNil(o.LastName) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastName gets a reference to the given string and assigns it to the LastName field.
-func (o *InputValueAnyOf8) SetLastName(v string) {
-	o.LastName = &v
-}
-
-// GetFullName returns the FullName field value if set, zero value otherwise.
-func (o *InputValueAnyOf8) GetFullName() string {
-	if o == nil || IsNil(o.FullName) {
-		var ret string
-		return ret
-	}
-	return *o.FullName
-}
-
-// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InputValueAnyOf8) GetFullNameOk() (*string, bool) {
-	if o == nil || IsNil(o.FullName) {
-		return nil, false
-	}
-	return o.FullName, true
-}
-
-// HasFullName returns a boolean if a field has been set.
-func (o *InputValueAnyOf8) HasFullName() bool {
-	if o != nil && !IsNil(o.FullName) {
-		return true
-	}
-
-	return false
-}
-
-// SetFullName gets a reference to the given string and assigns it to the FullName field.
-func (o *InputValueAnyOf8) SetFullName(v string) {
-	o.FullName = &v
+// SetValue sets field value
+func (o *InputValueAnyOf8) SetValue(v float32) {
+	o.Value = v
 }
 
 func (o InputValueAnyOf8) MarshalJSON() ([]byte, error) {
@@ -151,16 +80,45 @@ func (o InputValueAnyOf8) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf8) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FirstName) {
-		toSerialize["first_name"] = o.FirstName
-	}
-	if !IsNil(o.LastName) {
-		toSerialize["last_name"] = o.LastName
-	}
-	if !IsNil(o.FullName) {
-		toSerialize["full_name"] = o.FullName
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
+}
+
+func (o *InputValueAnyOf8) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"value",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varInputValueAnyOf8 := _InputValueAnyOf8{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varInputValueAnyOf8)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InputValueAnyOf8(varInputValueAnyOf8)
+
+	return err
 }
 
 type NullableInputValueAnyOf8 struct {

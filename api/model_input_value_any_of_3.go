@@ -22,8 +22,8 @@ var _ MappedNullable = &InputValueAnyOf3{}
 
 // InputValueAnyOf3 struct for InputValueAnyOf3
 type InputValueAnyOf3 struct {
-	// A date represents a single calendar year, month and day, independent of timezone. If hours, months, seconds or timezones are provided, they will be trimmed. For example, \"2023\" and \"2023-01\" will be coerced into \"2023-01-01\", and \"2023-01-02\", \"2023-01-02T13:00\", \"2023-01-02T14:00:00\", \"2023-01-02T15:00:00.000000000\", and \"2023-01-02T15:00:00.000000000+02:00\" will all be coerced to \"2023-01-02\". If a timezone is provided that would result in a different calendar date in UTC, the date will be coerced to UTC and then the timezone component will be trimmed. For example, the value \"2023-01-02T23:00:00-10:00\" will be returned as \"2023-01-03\". The maximum date is \"9999-12-31\".
-	Value string `json:"value"`
+	// A numerical representation of the currency value. A decimal with a max of 4 decimal places.
+	CurrencyValue float32 `json:"currency_value"`
 }
 
 type _InputValueAnyOf3 InputValueAnyOf3
@@ -32,9 +32,9 @@ type _InputValueAnyOf3 InputValueAnyOf3
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf3(value string) *InputValueAnyOf3 {
+func NewInputValueAnyOf3(currencyValue float32) *InputValueAnyOf3 {
 	this := InputValueAnyOf3{}
-	this.Value = value
+	this.CurrencyValue = currencyValue
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewInputValueAnyOf3WithDefaults() *InputValueAnyOf3 {
 	return &this
 }
 
-// GetValue returns the Value field value
-func (o *InputValueAnyOf3) GetValue() string {
+// GetCurrencyValue returns the CurrencyValue field value
+func (o *InputValueAnyOf3) GetCurrencyValue() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
-	return o.Value
+	return o.CurrencyValue
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetCurrencyValueOk returns a tuple with the CurrencyValue field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf3) GetValueOk() (*string, bool) {
+func (o *InputValueAnyOf3) GetCurrencyValueOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.CurrencyValue, true
 }
 
-// SetValue sets field value
-func (o *InputValueAnyOf3) SetValue(v string) {
-	o.Value = v
+// SetCurrencyValue sets field value
+func (o *InputValueAnyOf3) SetCurrencyValue(v float32) {
+	o.CurrencyValue = v
 }
 
 func (o InputValueAnyOf3) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o InputValueAnyOf3) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["value"] = o.Value
+	toSerialize["currency_value"] = o.CurrencyValue
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *InputValueAnyOf3) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"value",
+		"currency_value",
 	}
 
 	allProperties := make(map[string]interface{})

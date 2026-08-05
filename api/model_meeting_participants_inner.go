@@ -28,6 +28,8 @@ type MeetingParticipantsInner struct {
 	IsOrganizer bool `json:"is_organizer"`
 	// The normalized email address of the meeting participant.
 	EmailAddress NullableString `json:"email_address"`
+	// The participant's name. This is only set when the name was explicitly provided when the participant was created. It is null for any participant identified by an email address — including workspace members and person records — whose display names are not resolved into this field.
+	Name NullableString `json:"name"`
 }
 
 type _MeetingParticipantsInner MeetingParticipantsInner
@@ -36,11 +38,12 @@ type _MeetingParticipantsInner MeetingParticipantsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMeetingParticipantsInner(status string, isOrganizer bool, emailAddress NullableString) *MeetingParticipantsInner {
+func NewMeetingParticipantsInner(status string, isOrganizer bool, emailAddress NullableString, name NullableString) *MeetingParticipantsInner {
 	this := MeetingParticipantsInner{}
 	this.Status = status
 	this.IsOrganizer = isOrganizer
 	this.EmailAddress = emailAddress
+	this.Name = name
 	return &this
 }
 
@@ -126,6 +129,32 @@ func (o *MeetingParticipantsInner) SetEmailAddress(v string) {
 	o.EmailAddress.Set(&v)
 }
 
+// GetName returns the Name field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *MeetingParticipantsInner) GetName() string {
+	if o == nil || o.Name.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MeetingParticipantsInner) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// SetName sets field value
+func (o *MeetingParticipantsInner) SetName(v string) {
+	o.Name.Set(&v)
+}
+
 func (o MeetingParticipantsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -139,6 +168,7 @@ func (o MeetingParticipantsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["is_organizer"] = o.IsOrganizer
 	toSerialize["email_address"] = o.EmailAddress.Get()
+	toSerialize["name"] = o.Name.Get()
 	return toSerialize, nil
 }
 
@@ -150,6 +180,7 @@ func (o *MeetingParticipantsInner) UnmarshalJSON(data []byte) (err error) {
 		"status",
 		"is_organizer",
 		"email_address",
+		"name",
 	}
 
 	allProperties := make(map[string]interface{})

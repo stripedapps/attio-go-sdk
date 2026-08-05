@@ -24,7 +24,7 @@ var _ MappedNullable = &V2ObjectsObjectRecordsRecordIdGet404Response{}
 type V2ObjectsObjectRecordsRecordIdGet404Response struct {
 	StatusCode float32 `json:"status_code"`
 	Type string `json:"type"`
-	Code string `json:"code"`
+	Code V2ObjectsObjectRecordsRecordIdGet404ResponseCode `json:"code"`
 	Message string `json:"message"`
 }
 
@@ -34,7 +34,7 @@ type _V2ObjectsObjectRecordsRecordIdGet404Response V2ObjectsObjectRecordsRecordI
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsRecordIdGet404Response(statusCode float32, type_ string, code string, message string) *V2ObjectsObjectRecordsRecordIdGet404Response {
+func NewV2ObjectsObjectRecordsRecordIdGet404Response(statusCode float32, type_ string, code V2ObjectsObjectRecordsRecordIdGet404ResponseCode, message string) *V2ObjectsObjectRecordsRecordIdGet404Response {
 	this := V2ObjectsObjectRecordsRecordIdGet404Response{}
 	this.StatusCode = statusCode
 	this.Type = type_
@@ -100,9 +100,9 @@ func (o *V2ObjectsObjectRecordsRecordIdGet404Response) SetType(v string) {
 }
 
 // GetCode returns the Code field value
-func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCode() string {
+func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCode() V2ObjectsObjectRecordsRecordIdGet404ResponseCode {
 	if o == nil {
-		var ret string
+		var ret V2ObjectsObjectRecordsRecordIdGet404ResponseCode
 		return ret
 	}
 
@@ -111,7 +111,7 @@ func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCodeOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCodeOk() (*V2ObjectsObjectRecordsRecordIdGet404ResponseCode, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +119,7 @@ func (o *V2ObjectsObjectRecordsRecordIdGet404Response) GetCodeOk() (*string, boo
 }
 
 // SetCode sets field value
-func (o *V2ObjectsObjectRecordsRecordIdGet404Response) SetCode(v string) {
+func (o *V2ObjectsObjectRecordsRecordIdGet404Response) SetCode(v V2ObjectsObjectRecordsRecordIdGet404ResponseCode) {
 	o.Code = v
 }
 

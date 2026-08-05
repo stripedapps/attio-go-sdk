@@ -377,6 +377,154 @@ func (a *ListsAPIService) V2ListsListPatchExecute(r ApiV2ListsListPatchRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiV2ListsListViewsGetRequest struct {
+	ctx context.Context
+	ApiService *ListsAPIService
+	list string
+	showArchived *bool
+	limit *int32
+	cursor *string
+}
+
+func (r ApiV2ListsListViewsGetRequest) ShowArchived(showArchived bool) ApiV2ListsListViewsGetRequest {
+	r.showArchived = &showArchived
+	return r
+}
+
+func (r ApiV2ListsListViewsGetRequest) Limit(limit int32) ApiV2ListsListViewsGetRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiV2ListsListViewsGetRequest) Cursor(cursor string) ApiV2ListsListViewsGetRequest {
+	r.cursor = &cursor
+	return r
+}
+
+func (r ApiV2ListsListViewsGetRequest) Execute() (*V2ListsListViewsGet200Response, *http.Response, error) {
+	return r.ApiService.V2ListsListViewsGetExecute(r)
+}
+
+/*
+V2ListsListViewsGet List views for list
+
+Lists saved views for a list. Results are ordered by view ID (`id.view_id` ascending).
+
+Required scopes: `list_configuration:read`.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param list
+ @return ApiV2ListsListViewsGetRequest
+*/
+func (a *ListsAPIService) V2ListsListViewsGet(ctx context.Context, list string) ApiV2ListsListViewsGetRequest {
+	return ApiV2ListsListViewsGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		list: list,
+	}
+}
+
+// Execute executes the request
+//  @return V2ListsListViewsGet200Response
+func (a *ListsAPIService) V2ListsListViewsGetExecute(r ApiV2ListsListViewsGetRequest) (*V2ListsListViewsGet200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2ListsListViewsGet200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ListsAPIService.V2ListsListViewsGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2/lists/{list}/views"
+	localVarPath = strings.Replace(localVarPath, "{"+"list"+"}", url.PathEscape(parameterValueToString(r.list, "list")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.showArchived != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "show_archived", r.showArchived, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.showArchived = &defaultValue
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	if r.cursor != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v V2ListsListGet404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiV2ListsPostRequest struct {
 	ctx context.Context
 	ApiService *ListsAPIService

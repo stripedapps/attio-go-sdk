@@ -20,7 +20,7 @@ import (
 // AttributeDefaultValue The default value for this attribute. Static values are used to directly populate values using their contents. Dynamic values are used to lookup data at the point of creation. For example, you could use a dynamic value to insert a value for the currently logged in user. Which default values are available is dependent on the type of the attribute.
 type AttributeDefaultValue struct {
 	AttributeDefaultValueAnyOf *AttributeDefaultValueAnyOf
-	V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf *V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf
+	AttributeDefaultValueAnyOf1 *AttributeDefaultValueAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -44,17 +44,17 @@ func (dst *AttributeDefaultValue) UnmarshalJSON(data []byte) error {
 		dst.AttributeDefaultValueAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf
-	err = json.Unmarshal(data, &dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf);
+	// try to unmarshal JSON data into AttributeDefaultValueAnyOf1
+	err = json.Unmarshal(data, &dst.AttributeDefaultValueAnyOf1);
 	if err == nil {
-		jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf, _ := json.Marshal(dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
-		if string(jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf) == "{}" { // empty struct
-			dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
+		jsonAttributeDefaultValueAnyOf1, _ := json.Marshal(dst.AttributeDefaultValueAnyOf1)
+		if string(jsonAttributeDefaultValueAnyOf1) == "{}" { // empty struct
+			dst.AttributeDefaultValueAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf, return on the first match
+			return nil // data stored in dst.AttributeDefaultValueAnyOf1, return on the first match
 		}
 	} else {
-		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
+		dst.AttributeDefaultValueAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(AttributeDefaultValue)")
@@ -66,8 +66,8 @@ func (src AttributeDefaultValue) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.AttributeDefaultValueAnyOf)
 	}
 
-	if src.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf != nil {
-		return json.Marshal(&src.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
+	if src.AttributeDefaultValueAnyOf1 != nil {
+		return json.Marshal(&src.AttributeDefaultValueAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

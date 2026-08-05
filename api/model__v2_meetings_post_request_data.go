@@ -33,7 +33,6 @@ type V2MeetingsPostRequestData struct {
 	Participants []V2MeetingsPostRequestDataParticipantsInner `json:"participants"`
 	// A list of records to link to the meeting. Each record is specified by its object (slug or UUID) and record ID (UUID). Attio will automatically link the meeting participants' companies to the meeting; this behavior is asynchronous.
 	LinkedRecords []V2MeetingsPostRequestDataLinkedRecordsInner `json:"linked_records,omitempty"`
-	ExternalRef V2MeetingsPostRequestDataExternalRef `json:"external_ref"`
 }
 
 type _V2MeetingsPostRequestData V2MeetingsPostRequestData
@@ -42,7 +41,7 @@ type _V2MeetingsPostRequestData V2MeetingsPostRequestData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2MeetingsPostRequestData(title string, description string, start V2MeetingsPostRequestDataStart, end V2MeetingsPostRequestDataEnd, isAllDay bool, participants []V2MeetingsPostRequestDataParticipantsInner, externalRef V2MeetingsPostRequestDataExternalRef) *V2MeetingsPostRequestData {
+func NewV2MeetingsPostRequestData(title string, description string, start V2MeetingsPostRequestDataStart, end V2MeetingsPostRequestDataEnd, isAllDay bool, participants []V2MeetingsPostRequestDataParticipantsInner) *V2MeetingsPostRequestData {
 	this := V2MeetingsPostRequestData{}
 	this.Title = title
 	this.Description = description
@@ -50,7 +49,6 @@ func NewV2MeetingsPostRequestData(title string, description string, start V2Meet
 	this.End = end
 	this.IsAllDay = isAllDay
 	this.Participants = participants
-	this.ExternalRef = externalRef
 	return &this
 }
 
@@ -238,30 +236,6 @@ func (o *V2MeetingsPostRequestData) SetLinkedRecords(v []V2MeetingsPostRequestDa
 	o.LinkedRecords = v
 }
 
-// GetExternalRef returns the ExternalRef field value
-func (o *V2MeetingsPostRequestData) GetExternalRef() V2MeetingsPostRequestDataExternalRef {
-	if o == nil {
-		var ret V2MeetingsPostRequestDataExternalRef
-		return ret
-	}
-
-	return o.ExternalRef
-}
-
-// GetExternalRefOk returns a tuple with the ExternalRef field value
-// and a boolean to check if the value has been set.
-func (o *V2MeetingsPostRequestData) GetExternalRefOk() (*V2MeetingsPostRequestDataExternalRef, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ExternalRef, true
-}
-
-// SetExternalRef sets field value
-func (o *V2MeetingsPostRequestData) SetExternalRef(v V2MeetingsPostRequestDataExternalRef) {
-	o.ExternalRef = v
-}
-
 func (o V2MeetingsPostRequestData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -281,7 +255,6 @@ func (o V2MeetingsPostRequestData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LinkedRecords) {
 		toSerialize["linked_records"] = o.LinkedRecords
 	}
-	toSerialize["external_ref"] = o.ExternalRef
 	return toSerialize, nil
 }
 
@@ -296,7 +269,6 @@ func (o *V2MeetingsPostRequestData) UnmarshalJSON(data []byte) (err error) {
 		"end",
 		"is_all_day",
 		"participants",
-		"external_ref",
 	}
 
 	allProperties := make(map[string]interface{})

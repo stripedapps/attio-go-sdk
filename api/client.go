@@ -57,7 +57,11 @@ type APIClient struct {
 
 	CommentsAPI *CommentsAPIService
 
+	EmailsAPI *EmailsAPIService
+
 	EntriesAPI *EntriesAPIService
+
+	FilesAPI *FilesAPIService
 
 	ListsAPI *ListsAPIService
 
@@ -71,7 +75,7 @@ type APIClient struct {
 
 	RecordsAPI *RecordsAPIService
 
-	SCIMSchemasAPI *SCIMSchemasAPIService
+	SQLAPI *SQLAPIService
 
 	TasksAPI *TasksAPIService
 
@@ -103,14 +107,16 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AttributesAPI = (*AttributesAPIService)(&c.common)
 	c.CallRecordingsAPI = (*CallRecordingsAPIService)(&c.common)
 	c.CommentsAPI = (*CommentsAPIService)(&c.common)
+	c.EmailsAPI = (*EmailsAPIService)(&c.common)
 	c.EntriesAPI = (*EntriesAPIService)(&c.common)
+	c.FilesAPI = (*FilesAPIService)(&c.common)
 	c.ListsAPI = (*ListsAPIService)(&c.common)
 	c.MeetingsAPI = (*MeetingsAPIService)(&c.common)
 	c.MetaAPI = (*MetaAPIService)(&c.common)
 	c.NotesAPI = (*NotesAPIService)(&c.common)
 	c.ObjectsAPI = (*ObjectsAPIService)(&c.common)
 	c.RecordsAPI = (*RecordsAPIService)(&c.common)
-	c.SCIMSchemasAPI = (*SCIMSchemasAPIService)(&c.common)
+	c.SQLAPI = (*SQLAPIService)(&c.common)
 	c.TasksAPI = (*TasksAPIService)(&c.common)
 	c.ThreadsAPI = (*ThreadsAPIService)(&c.common)
 	c.TranscriptsAPI = (*TranscriptsAPIService)(&c.common)
@@ -545,7 +551,10 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	err = file.Close()
+	if err != nil {
+		return err
+	}
 
 	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
 	if err != nil {

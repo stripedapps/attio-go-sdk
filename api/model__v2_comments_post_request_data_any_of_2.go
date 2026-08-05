@@ -25,7 +25,7 @@ type V2CommentsPostRequestDataAnyOf2 struct {
 	Format string `json:"format"`
 	// The content of the comment itself. Workspace members can be mentioned using their email address, otherwise email addresses will be presented to users as clickable mailto links.
 	Content string `json:"content"`
-	Author V2CommentsPostRequestDataAnyOfAuthor `json:"author"`
+	Author V2CommentsPostRequestDataAnyOf1Author `json:"author"`
 	// `created_at` will default to the current time. However, if you wish to backdate a comment for migration or other purposes, you can override with a custom `created_at` value. Note that dates before 1970 or in the future are not allowed.
 	CreatedAt *string `json:"created_at,omitempty"`
 	Entry V2CommentsPostRequestDataAnyOf2Entry `json:"entry"`
@@ -38,7 +38,7 @@ type _V2CommentsPostRequestDataAnyOf2 V2CommentsPostRequestDataAnyOf2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2CommentsPostRequestDataAnyOf2(format string, content string, author V2CommentsPostRequestDataAnyOfAuthor, entry V2CommentsPostRequestDataAnyOf2Entry) *V2CommentsPostRequestDataAnyOf2 {
+func NewV2CommentsPostRequestDataAnyOf2(format string, content string, author V2CommentsPostRequestDataAnyOf1Author, entry V2CommentsPostRequestDataAnyOf2Entry) *V2CommentsPostRequestDataAnyOf2 {
 	this := V2CommentsPostRequestDataAnyOf2{}
 	this.Format = format
 	this.Content = content
@@ -104,9 +104,9 @@ func (o *V2CommentsPostRequestDataAnyOf2) SetContent(v string) {
 }
 
 // GetAuthor returns the Author field value
-func (o *V2CommentsPostRequestDataAnyOf2) GetAuthor() V2CommentsPostRequestDataAnyOfAuthor {
+func (o *V2CommentsPostRequestDataAnyOf2) GetAuthor() V2CommentsPostRequestDataAnyOf1Author {
 	if o == nil {
-		var ret V2CommentsPostRequestDataAnyOfAuthor
+		var ret V2CommentsPostRequestDataAnyOf1Author
 		return ret
 	}
 
@@ -115,7 +115,7 @@ func (o *V2CommentsPostRequestDataAnyOf2) GetAuthor() V2CommentsPostRequestDataA
 
 // GetAuthorOk returns a tuple with the Author field value
 // and a boolean to check if the value has been set.
-func (o *V2CommentsPostRequestDataAnyOf2) GetAuthorOk() (*V2CommentsPostRequestDataAnyOfAuthor, bool) {
+func (o *V2CommentsPostRequestDataAnyOf2) GetAuthorOk() (*V2CommentsPostRequestDataAnyOf1Author, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -123,7 +123,7 @@ func (o *V2CommentsPostRequestDataAnyOf2) GetAuthorOk() (*V2CommentsPostRequestD
 }
 
 // SetAuthor sets field value
-func (o *V2CommentsPostRequestDataAnyOf2) SetAuthor(v V2CommentsPostRequestDataAnyOfAuthor) {
+func (o *V2CommentsPostRequestDataAnyOf2) SetAuthor(v V2CommentsPostRequestDataAnyOf1Author) {
 	o.Author = v
 }
 

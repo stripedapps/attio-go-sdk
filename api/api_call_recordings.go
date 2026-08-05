@@ -40,7 +40,7 @@ V2MeetingsMeetingIdCallRecordingsCallRecordingIdDelete Delete call recording
 
 Deletes the specified call recording. This will remove the call recording and all associated data.
 
-This endpoint is in alpha and may be subject to breaking changes as we gather feedback.
+This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
 
 Required scopes: `meeting:read`, `call_recording:read-write`.
 
@@ -152,7 +152,7 @@ type ApiV2MeetingsMeetingIdCallRecordingsCallRecordingIdGetRequest struct {
 	callRecordingId string
 }
 
-func (r ApiV2MeetingsMeetingIdCallRecordingsCallRecordingIdGetRequest) Execute() (*V2MeetingsMeetingIdCallRecordingsPost200Response, *http.Response, error) {
+func (r ApiV2MeetingsMeetingIdCallRecordingsCallRecordingIdGetRequest) Execute() (*V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200Response, *http.Response, error) {
 	return r.ApiService.V2MeetingsMeetingIdCallRecordingsCallRecordingIdGetExecute(r)
 }
 
@@ -180,13 +180,13 @@ func (a *CallRecordingsAPIService) V2MeetingsMeetingIdCallRecordingsCallRecordin
 }
 
 // Execute executes the request
-//  @return V2MeetingsMeetingIdCallRecordingsPost200Response
-func (a *CallRecordingsAPIService) V2MeetingsMeetingIdCallRecordingsCallRecordingIdGetExecute(r ApiV2MeetingsMeetingIdCallRecordingsCallRecordingIdGetRequest) (*V2MeetingsMeetingIdCallRecordingsPost200Response, *http.Response, error) {
+//  @return V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200Response
+func (a *CallRecordingsAPIService) V2MeetingsMeetingIdCallRecordingsCallRecordingIdGetExecute(r ApiV2MeetingsMeetingIdCallRecordingsCallRecordingIdGetRequest) (*V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *V2MeetingsMeetingIdCallRecordingsPost200Response
+		localVarReturnValue  *V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CallRecordingsAPIService.V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet")
@@ -412,7 +412,9 @@ V2MeetingsMeetingIdCallRecordingsPost Create call recording
 
 Create a call recording for a meeting. This endpoint is rate limited to 1 request per second.
 
-This endpoint is in alpha and may be subject to breaking changes as we gather feedback.
+A `transcript` should always be provided — it is technically optional for backwards compatibility, but a call recording created without one will be missing summaries and other transcript-derived features. `video_url` is optional, and a transcript-only call recording (with no video) is fully supported.
+
+This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
 
 Required scopes: `meeting:read`, `call_recording:read-write`.
 

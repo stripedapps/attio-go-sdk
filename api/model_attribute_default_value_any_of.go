@@ -23,7 +23,7 @@ var _ MappedNullable = &AttributeDefaultValueAnyOf{}
 // AttributeDefaultValueAnyOf struct for AttributeDefaultValueAnyOf
 type AttributeDefaultValueAnyOf struct {
 	Type string `json:"type"`
-	Template []OutputValue `json:"template"`
+	Template AttributeDefaultValueAnyOfTemplate `json:"template"`
 }
 
 type _AttributeDefaultValueAnyOf AttributeDefaultValueAnyOf
@@ -32,7 +32,7 @@ type _AttributeDefaultValueAnyOf AttributeDefaultValueAnyOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttributeDefaultValueAnyOf(type_ string, template []OutputValue) *AttributeDefaultValueAnyOf {
+func NewAttributeDefaultValueAnyOf(type_ string, template AttributeDefaultValueAnyOfTemplate) *AttributeDefaultValueAnyOf {
 	this := AttributeDefaultValueAnyOf{}
 	this.Type = type_
 	this.Template = template
@@ -72,9 +72,9 @@ func (o *AttributeDefaultValueAnyOf) SetType(v string) {
 }
 
 // GetTemplate returns the Template field value
-func (o *AttributeDefaultValueAnyOf) GetTemplate() []OutputValue {
+func (o *AttributeDefaultValueAnyOf) GetTemplate() AttributeDefaultValueAnyOfTemplate {
 	if o == nil {
-		var ret []OutputValue
+		var ret AttributeDefaultValueAnyOfTemplate
 		return ret
 	}
 
@@ -83,15 +83,15 @@ func (o *AttributeDefaultValueAnyOf) GetTemplate() []OutputValue {
 
 // GetTemplateOk returns a tuple with the Template field value
 // and a boolean to check if the value has been set.
-func (o *AttributeDefaultValueAnyOf) GetTemplateOk() ([]OutputValue, bool) {
+func (o *AttributeDefaultValueAnyOf) GetTemplateOk() (*AttributeDefaultValueAnyOfTemplate, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Template, true
+	return &o.Template, true
 }
 
 // SetTemplate sets field value
-func (o *AttributeDefaultValueAnyOf) SetTemplate(v []OutputValue) {
+func (o *AttributeDefaultValueAnyOf) SetTemplate(v AttributeDefaultValueAnyOfTemplate) {
 	o.Template = v
 }
 

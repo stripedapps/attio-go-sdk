@@ -23,7 +23,7 @@ var _ MappedNullable = &V2MeetingsGet200Response{}
 // V2MeetingsGet200Response Success
 type V2MeetingsGet200Response struct {
 	Data []Meeting `json:"data"`
-	Pagination V2MeetingsGet200ResponsePagination `json:"pagination"`
+	Pagination V2ObjectsObjectViewsGet200ResponsePagination `json:"pagination"`
 }
 
 type _V2MeetingsGet200Response V2MeetingsGet200Response
@@ -32,7 +32,7 @@ type _V2MeetingsGet200Response V2MeetingsGet200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2MeetingsGet200Response(data []Meeting, pagination V2MeetingsGet200ResponsePagination) *V2MeetingsGet200Response {
+func NewV2MeetingsGet200Response(data []Meeting, pagination V2ObjectsObjectViewsGet200ResponsePagination) *V2MeetingsGet200Response {
 	this := V2MeetingsGet200Response{}
 	this.Data = data
 	this.Pagination = pagination
@@ -72,9 +72,9 @@ func (o *V2MeetingsGet200Response) SetData(v []Meeting) {
 }
 
 // GetPagination returns the Pagination field value
-func (o *V2MeetingsGet200Response) GetPagination() V2MeetingsGet200ResponsePagination {
+func (o *V2MeetingsGet200Response) GetPagination() V2ObjectsObjectViewsGet200ResponsePagination {
 	if o == nil {
-		var ret V2MeetingsGet200ResponsePagination
+		var ret V2ObjectsObjectViewsGet200ResponsePagination
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *V2MeetingsGet200Response) GetPagination() V2MeetingsGet200ResponsePagin
 
 // GetPaginationOk returns a tuple with the Pagination field value
 // and a boolean to check if the value has been set.
-func (o *V2MeetingsGet200Response) GetPaginationOk() (*V2MeetingsGet200ResponsePagination, bool) {
+func (o *V2MeetingsGet200Response) GetPaginationOk() (*V2ObjectsObjectViewsGet200ResponsePagination, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *V2MeetingsGet200Response) GetPaginationOk() (*V2MeetingsGet200ResponseP
 }
 
 // SetPagination sets field value
-func (o *V2MeetingsGet200Response) SetPagination(v V2MeetingsGet200ResponsePagination) {
+func (o *V2MeetingsGet200Response) SetPagination(v V2ObjectsObjectViewsGet200ResponsePagination) {
 	o.Pagination = v
 }
 

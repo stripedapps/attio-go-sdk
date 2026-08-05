@@ -20,21 +20,21 @@ import (
 // V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner - struct for V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
 type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner struct {
 	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8
-	V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
 	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4
 	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7
+	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8
 	V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
 }
 
@@ -45,94 +45,17 @@ func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOfAsV2ObjectsObj
 	}
 }
 
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
 	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1: v,
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1: v,
 	}
 }
 
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
 	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8: v,
-	}
-}
-
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
-func V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
-	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
-		V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9: v,
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10: v,
 	}
 }
 
@@ -143,10 +66,87 @@ func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11A
 	}
 }
 
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4: v,
+	}
+}
+
 // V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
 func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
 	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
 		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7: v,
+	}
+}
+
+// V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner is a convenience function that returns V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 wrapped in V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+func V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8AsV2ObjectsObjectRecordsPut200ResponseDataValuesValueInner(v *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8) V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+	return V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{
+		V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8: v,
 	}
 }
 
@@ -179,225 +179,38 @@ func (dst *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) UnmarshalJS
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf = nil
 	}
 
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1)
 	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 = nil
 	}
 
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10)
 	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
-	}
-
-	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
-	if err == nil {
-		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
-		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) == "{}" { // empty struct
-			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
-		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
@@ -417,6 +230,142 @@ func (dst *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) UnmarshalJS
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 = nil
 	}
 
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 = nil
+	}
+
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
 	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
 	if err == nil {
@@ -432,6 +381,57 @@ func (dst *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) UnmarshalJS
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 = nil
+	}
+
+	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8
+	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8)
+	if err == nil {
+		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8)
+		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8) == "{}" { // empty struct
+			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 = nil
+		} else {
+			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8); err != nil {
+				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
@@ -454,21 +454,21 @@ func (dst *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) UnmarshalJS
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
-		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 = nil
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 = nil
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 = nil
+		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 = nil
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner)")
@@ -485,64 +485,64 @@ func (src V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) MarshalJSON(
 		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
 	}
 
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1)
 	}
 
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
-	}
-
-	if src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 != nil {
-		return json.Marshal(&src.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10)
 	}
 
 	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 != nil {
 		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
 	}
 
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4)
+	}
+
 	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 != nil {
 		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7)
+	}
+
+	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 != nil {
+		return json.Marshal(&src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8)
 	}
 
 	if src.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 != nil {
@@ -561,64 +561,64 @@ func (obj *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) GetActualIn
 		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf
 	}
 
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1
 	}
 
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 != nil {
-		return obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
 	}
 
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 != nil {
 		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
 	}
 
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4
+	}
+
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 != nil {
 		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 != nil {
+		return obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8
 	}
 
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 != nil {
@@ -635,64 +635,64 @@ func (obj V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) GetActualIns
 		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf
 	}
 
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1
 	}
 
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8
-	}
-
-	if obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 != nil {
-		return *obj.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
 	}
 
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 != nil {
 		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
 	}
 
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf12
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf13
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf14
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf15
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf2
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf3
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf4
+	}
+
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 != nil {
 		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf6
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf7
+	}
+
+	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8 != nil {
+		return *obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf8
 	}
 
 	if obj.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 != nil {

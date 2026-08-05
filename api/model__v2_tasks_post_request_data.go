@@ -30,8 +30,8 @@ type V2TasksPostRequestData struct {
 	DeadlineAt NullableString `json:"deadline_at"`
 	// Whether the task has been completed.
 	IsCompleted bool `json:"is_completed"`
-	// Records linked to the task. Creating record links within task content text is not possible via the API at present.
-	LinkedRecords []V2TasksPostRequestDataLinkedRecordsInner `json:"linked_records"`
+	// Records linked to the task. Records can be linked by domain (for companies), email address (for people), record ID (for all objects) or by a unique matching attribute (for all objects). Creating record links within task content text is not possible via the API at present.
+	LinkedRecords []interface{} `json:"linked_records"`
 	// Workspace members assigned to this task.
 	Assignees []V2TasksPostRequestDataAssigneesInner `json:"assignees"`
 }
@@ -42,7 +42,7 @@ type _V2TasksPostRequestData V2TasksPostRequestData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2TasksPostRequestData(content string, format string, deadlineAt NullableString, isCompleted bool, linkedRecords []V2TasksPostRequestDataLinkedRecordsInner, assignees []V2TasksPostRequestDataAssigneesInner) *V2TasksPostRequestData {
+func NewV2TasksPostRequestData(content string, format string, deadlineAt NullableString, isCompleted bool, linkedRecords []interface{}, assignees []V2TasksPostRequestDataAssigneesInner) *V2TasksPostRequestData {
 	this := V2TasksPostRequestData{}
 	this.Content = content
 	this.Format = format
@@ -160,9 +160,9 @@ func (o *V2TasksPostRequestData) SetIsCompleted(v bool) {
 }
 
 // GetLinkedRecords returns the LinkedRecords field value
-func (o *V2TasksPostRequestData) GetLinkedRecords() []V2TasksPostRequestDataLinkedRecordsInner {
+func (o *V2TasksPostRequestData) GetLinkedRecords() []interface{} {
 	if o == nil {
-		var ret []V2TasksPostRequestDataLinkedRecordsInner
+		var ret []interface{}
 		return ret
 	}
 
@@ -171,7 +171,7 @@ func (o *V2TasksPostRequestData) GetLinkedRecords() []V2TasksPostRequestDataLink
 
 // GetLinkedRecordsOk returns a tuple with the LinkedRecords field value
 // and a boolean to check if the value has been set.
-func (o *V2TasksPostRequestData) GetLinkedRecordsOk() ([]V2TasksPostRequestDataLinkedRecordsInner, bool) {
+func (o *V2TasksPostRequestData) GetLinkedRecordsOk() ([]interface{}, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -179,7 +179,7 @@ func (o *V2TasksPostRequestData) GetLinkedRecordsOk() ([]V2TasksPostRequestDataL
 }
 
 // SetLinkedRecords sets field value
-func (o *V2TasksPostRequestData) SetLinkedRecords(v []V2TasksPostRequestDataLinkedRecordsInner) {
+func (o *V2TasksPostRequestData) SetLinkedRecords(v []interface{}) {
 	o.LinkedRecords = v
 }
 

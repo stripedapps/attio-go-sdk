@@ -13,8 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the InputValueAnyOf9 type satisfies the MappedNullable interface at compile time
@@ -22,21 +20,20 @@ var _ MappedNullable = &InputValueAnyOf9{}
 
 // InputValueAnyOf9 struct for InputValueAnyOf9
 type InputValueAnyOf9 struct {
-	// A phone number which is either a) prefixed with a country code (e.g. `+44....`) or b) a local number, where `country_code` is specified in addition.
-	OriginalPhoneNumber string `json:"original_phone_number"`
-	// The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to. Optional if `original_phone_number` includes a country code prefix.
-	CountryCode NullableString `json:"country_code,omitempty"`
+	// The first name.
+	FirstName *string `json:"first_name,omitempty"`
+	// The last name.
+	LastName *string `json:"last_name,omitempty"`
+	// The full name.
+	FullName *string `json:"full_name,omitempty"`
 }
-
-type _InputValueAnyOf9 InputValueAnyOf9
 
 // NewInputValueAnyOf9 instantiates a new InputValueAnyOf9 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf9(originalPhoneNumber string) *InputValueAnyOf9 {
+func NewInputValueAnyOf9() *InputValueAnyOf9 {
 	this := InputValueAnyOf9{}
-	this.OriginalPhoneNumber = originalPhoneNumber
 	return &this
 }
 
@@ -48,70 +45,100 @@ func NewInputValueAnyOf9WithDefaults() *InputValueAnyOf9 {
 	return &this
 }
 
-// GetOriginalPhoneNumber returns the OriginalPhoneNumber field value
-func (o *InputValueAnyOf9) GetOriginalPhoneNumber() string {
-	if o == nil {
+// GetFirstName returns the FirstName field value if set, zero value otherwise.
+func (o *InputValueAnyOf9) GetFirstName() string {
+	if o == nil || IsNil(o.FirstName) {
 		var ret string
 		return ret
 	}
-
-	return o.OriginalPhoneNumber
+	return *o.FirstName
 }
 
-// GetOriginalPhoneNumberOk returns a tuple with the OriginalPhoneNumber field value
+// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf9) GetOriginalPhoneNumberOk() (*string, bool) {
-	if o == nil {
+func (o *InputValueAnyOf9) GetFirstNameOk() (*string, bool) {
+	if o == nil || IsNil(o.FirstName) {
 		return nil, false
 	}
-	return &o.OriginalPhoneNumber, true
+	return o.FirstName, true
 }
 
-// SetOriginalPhoneNumber sets field value
-func (o *InputValueAnyOf9) SetOriginalPhoneNumber(v string) {
-	o.OriginalPhoneNumber = v
-}
-
-// GetCountryCode returns the CountryCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InputValueAnyOf9) GetCountryCode() string {
-	if o == nil || IsNil(o.CountryCode.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CountryCode.Get()
-}
-
-// GetCountryCodeOk returns a tuple with the CountryCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InputValueAnyOf9) GetCountryCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CountryCode.Get(), o.CountryCode.IsSet()
-}
-
-// HasCountryCode returns a boolean if a field has been set.
-func (o *InputValueAnyOf9) HasCountryCode() bool {
-	if o != nil && o.CountryCode.IsSet() {
+// HasFirstName returns a boolean if a field has been set.
+func (o *InputValueAnyOf9) HasFirstName() bool {
+	if o != nil && !IsNil(o.FirstName) {
 		return true
 	}
 
 	return false
 }
 
-// SetCountryCode gets a reference to the given NullableString and assigns it to the CountryCode field.
-func (o *InputValueAnyOf9) SetCountryCode(v string) {
-	o.CountryCode.Set(&v)
-}
-// SetCountryCodeNil sets the value for CountryCode to be an explicit nil
-func (o *InputValueAnyOf9) SetCountryCodeNil() {
-	o.CountryCode.Set(nil)
+// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+func (o *InputValueAnyOf9) SetFirstName(v string) {
+	o.FirstName = &v
 }
 
-// UnsetCountryCode ensures that no value is present for CountryCode, not even an explicit nil
-func (o *InputValueAnyOf9) UnsetCountryCode() {
-	o.CountryCode.Unset()
+// GetLastName returns the LastName field value if set, zero value otherwise.
+func (o *InputValueAnyOf9) GetLastName() string {
+	if o == nil || IsNil(o.LastName) {
+		var ret string
+		return ret
+	}
+	return *o.LastName
+}
+
+// GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputValueAnyOf9) GetLastNameOk() (*string, bool) {
+	if o == nil || IsNil(o.LastName) {
+		return nil, false
+	}
+	return o.LastName, true
+}
+
+// HasLastName returns a boolean if a field has been set.
+func (o *InputValueAnyOf9) HasLastName() bool {
+	if o != nil && !IsNil(o.LastName) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastName gets a reference to the given string and assigns it to the LastName field.
+func (o *InputValueAnyOf9) SetLastName(v string) {
+	o.LastName = &v
+}
+
+// GetFullName returns the FullName field value if set, zero value otherwise.
+func (o *InputValueAnyOf9) GetFullName() string {
+	if o == nil || IsNil(o.FullName) {
+		var ret string
+		return ret
+	}
+	return *o.FullName
+}
+
+// GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InputValueAnyOf9) GetFullNameOk() (*string, bool) {
+	if o == nil || IsNil(o.FullName) {
+		return nil, false
+	}
+	return o.FullName, true
+}
+
+// HasFullName returns a boolean if a field has been set.
+func (o *InputValueAnyOf9) HasFullName() bool {
+	if o != nil && !IsNil(o.FullName) {
+		return true
+	}
+
+	return false
+}
+
+// SetFullName gets a reference to the given string and assigns it to the FullName field.
+func (o *InputValueAnyOf9) SetFullName(v string) {
+	o.FullName = &v
 }
 
 func (o InputValueAnyOf9) MarshalJSON() ([]byte, error) {
@@ -124,48 +151,16 @@ func (o InputValueAnyOf9) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf9) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["original_phone_number"] = o.OriginalPhoneNumber
-	if o.CountryCode.IsSet() {
-		toSerialize["country_code"] = o.CountryCode.Get()
+	if !IsNil(o.FirstName) {
+		toSerialize["first_name"] = o.FirstName
+	}
+	if !IsNil(o.LastName) {
+		toSerialize["last_name"] = o.LastName
+	}
+	if !IsNil(o.FullName) {
+		toSerialize["full_name"] = o.FullName
 	}
 	return toSerialize, nil
-}
-
-func (o *InputValueAnyOf9) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"original_phone_number",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varInputValueAnyOf9 := _InputValueAnyOf9{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInputValueAnyOf9)
-
-	if err != nil {
-		return err
-	}
-
-	*o = InputValueAnyOf9(varInputValueAnyOf9)
-
-	return err
 }
 
 type NullableInputValueAnyOf9 struct {

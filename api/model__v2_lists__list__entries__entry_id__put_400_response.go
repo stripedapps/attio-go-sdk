@@ -24,7 +24,7 @@ var _ MappedNullable = &V2ListsListEntriesEntryIdPut400Response{}
 type V2ListsListEntriesEntryIdPut400Response struct {
 	StatusCode float32 `json:"status_code"`
 	Type string `json:"type"`
-	Code string `json:"code"`
+	Code V2ListsListEntriesEntryIdPut400ResponseCode `json:"code"`
 	Message string `json:"message"`
 }
 
@@ -34,7 +34,7 @@ type _V2ListsListEntriesEntryIdPut400Response V2ListsListEntriesEntryIdPut400Res
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ListsListEntriesEntryIdPut400Response(statusCode float32, type_ string, code string, message string) *V2ListsListEntriesEntryIdPut400Response {
+func NewV2ListsListEntriesEntryIdPut400Response(statusCode float32, type_ string, code V2ListsListEntriesEntryIdPut400ResponseCode, message string) *V2ListsListEntriesEntryIdPut400Response {
 	this := V2ListsListEntriesEntryIdPut400Response{}
 	this.StatusCode = statusCode
 	this.Type = type_
@@ -100,9 +100,9 @@ func (o *V2ListsListEntriesEntryIdPut400Response) SetType(v string) {
 }
 
 // GetCode returns the Code field value
-func (o *V2ListsListEntriesEntryIdPut400Response) GetCode() string {
+func (o *V2ListsListEntriesEntryIdPut400Response) GetCode() V2ListsListEntriesEntryIdPut400ResponseCode {
 	if o == nil {
-		var ret string
+		var ret V2ListsListEntriesEntryIdPut400ResponseCode
 		return ret
 	}
 
@@ -111,7 +111,7 @@ func (o *V2ListsListEntriesEntryIdPut400Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
-func (o *V2ListsListEntriesEntryIdPut400Response) GetCodeOk() (*string, bool) {
+func (o *V2ListsListEntriesEntryIdPut400Response) GetCodeOk() (*V2ListsListEntriesEntryIdPut400ResponseCode, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +119,7 @@ func (o *V2ListsListEntriesEntryIdPut400Response) GetCodeOk() (*string, bool) {
 }
 
 // SetCode sets field value
-func (o *V2ListsListEntriesEntryIdPut400Response) SetCode(v string) {
+func (o *V2ListsListEntriesEntryIdPut400Response) SetCode(v V2ListsListEntriesEntryIdPut400ResponseCode) {
 	o.Code = v
 }
 

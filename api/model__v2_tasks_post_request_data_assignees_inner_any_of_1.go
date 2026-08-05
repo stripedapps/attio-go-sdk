@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &V2TasksPostRequestDataAssigneesInnerAnyOf1{}
 type V2TasksPostRequestDataAssigneesInnerAnyOf1 struct {
 	// Workspace member actors can be referenced by email address as well as actor ID.
 	WorkspaceMemberEmailAddress string `json:"workspace_member_email_address"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _V2TasksPostRequestDataAssigneesInnerAnyOf1 V2TasksPostRequestDataAssigneesInnerAnyOf1
@@ -81,6 +81,11 @@ func (o V2TasksPostRequestDataAssigneesInnerAnyOf1) MarshalJSON() ([]byte, error
 func (o V2TasksPostRequestDataAssigneesInnerAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["workspace_member_email_address"] = o.WorkspaceMemberEmailAddress
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -108,15 +113,20 @@ func (o *V2TasksPostRequestDataAssigneesInnerAnyOf1) UnmarshalJSON(data []byte) 
 
 	varV2TasksPostRequestDataAssigneesInnerAnyOf1 := _V2TasksPostRequestDataAssigneesInnerAnyOf1{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV2TasksPostRequestDataAssigneesInnerAnyOf1)
+	err = json.Unmarshal(data, &varV2TasksPostRequestDataAssigneesInnerAnyOf1)
 
 	if err != nil {
 		return err
 	}
 
 	*o = V2TasksPostRequestDataAssigneesInnerAnyOf1(varV2TasksPostRequestDataAssigneesInnerAnyOf1)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "workspace_member_email_address")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

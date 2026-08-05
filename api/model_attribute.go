@@ -33,7 +33,7 @@ type Attribute struct {
 	Type string `json:"type"`
 	// `true` if this is an Attio system-defined attribute, `false` if defined by a user or non-Attio system.
 	IsSystemAttribute bool `json:"is_system_attribute"`
-	// Whether or not this attribute can be written to. Can only be false when `is_system_attribute` is `true` (user-defined attributes are always writeable). If `false`, this usually means the attribute is enriched by Attio.
+	// Whether or not this attribute can be written to. It is `false` for protected system attributes, which are usually enriched by Attio. It is also `false` for formula attributes, whose values are calculated automatically.
 	IsWritable bool `json:"is_writable"`
 	// When `is_required` is `true`, new records/entries must have a value for this attribute. If `false`, values may be `null`. This value does not affect existing data and you do not need to backfill `null` values if changing `is_required` from `false` to `true`.
 	IsRequired bool `json:"is_required"`

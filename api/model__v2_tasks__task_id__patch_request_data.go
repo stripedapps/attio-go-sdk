@@ -21,13 +21,13 @@ var _ MappedNullable = &V2TasksTaskIdPatchRequestData{}
 // V2TasksTaskIdPatchRequestData struct for V2TasksTaskIdPatchRequestData
 type V2TasksTaskIdPatchRequestData struct {
 	// The deadline of the task, in ISO 8601 format.
-	DeadlineAt NullableString `json:"deadline_at,omitempty"`
+	DeadlineAt *string `json:"deadline_at,omitempty"`
 	// Whether the task has been completed.
 	IsCompleted *bool `json:"is_completed,omitempty"`
-	// Records linked to the task. Creating record links within task content text is not possible via the API at present.
-	LinkedRecords []V2TasksPostRequestDataLinkedRecordsInner `json:"linked_records,omitempty"`
+	// Records linked to the task. Records can be linked by domain (for companies), email address (for people), record ID (for all objects) or by a unique matching attribute (for all objects). Creating record links within task content text is not possible via the API at present.
+	LinkedRecords []interface{} `json:"linked_records,omitempty"`
 	// Workspace members assigned to this task.
-	Assignees []V2TasksPostRequestDataAssigneesInner `json:"assignees,omitempty"`
+	Assignees []V2TasksTaskIdPatchRequestDataAssigneesInner `json:"assignees,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -50,46 +50,36 @@ func NewV2TasksTaskIdPatchRequestDataWithDefaults() *V2TasksTaskIdPatchRequestDa
 	return &this
 }
 
-// GetDeadlineAt returns the DeadlineAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeadlineAt returns the DeadlineAt field value if set, zero value otherwise.
 func (o *V2TasksTaskIdPatchRequestData) GetDeadlineAt() string {
-	if o == nil || IsNil(o.DeadlineAt.Get()) {
+	if o == nil || IsNil(o.DeadlineAt) {
 		var ret string
 		return ret
 	}
-	return *o.DeadlineAt.Get()
+	return *o.DeadlineAt
 }
 
 // GetDeadlineAtOk returns a tuple with the DeadlineAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2TasksTaskIdPatchRequestData) GetDeadlineAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DeadlineAt) {
 		return nil, false
 	}
-	return o.DeadlineAt.Get(), o.DeadlineAt.IsSet()
+	return o.DeadlineAt, true
 }
 
 // HasDeadlineAt returns a boolean if a field has been set.
 func (o *V2TasksTaskIdPatchRequestData) HasDeadlineAt() bool {
-	if o != nil && o.DeadlineAt.IsSet() {
+	if o != nil && !IsNil(o.DeadlineAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetDeadlineAt gets a reference to the given NullableString and assigns it to the DeadlineAt field.
+// SetDeadlineAt gets a reference to the given string and assigns it to the DeadlineAt field.
 func (o *V2TasksTaskIdPatchRequestData) SetDeadlineAt(v string) {
-	o.DeadlineAt.Set(&v)
-}
-// SetDeadlineAtNil sets the value for DeadlineAt to be an explicit nil
-func (o *V2TasksTaskIdPatchRequestData) SetDeadlineAtNil() {
-	o.DeadlineAt.Set(nil)
-}
-
-// UnsetDeadlineAt ensures that no value is present for DeadlineAt, not even an explicit nil
-func (o *V2TasksTaskIdPatchRequestData) UnsetDeadlineAt() {
-	o.DeadlineAt.Unset()
+	o.DeadlineAt = &v
 }
 
 // GetIsCompleted returns the IsCompleted field value if set, zero value otherwise.
@@ -125,9 +115,9 @@ func (o *V2TasksTaskIdPatchRequestData) SetIsCompleted(v bool) {
 }
 
 // GetLinkedRecords returns the LinkedRecords field value if set, zero value otherwise.
-func (o *V2TasksTaskIdPatchRequestData) GetLinkedRecords() []V2TasksPostRequestDataLinkedRecordsInner {
+func (o *V2TasksTaskIdPatchRequestData) GetLinkedRecords() []interface{} {
 	if o == nil || IsNil(o.LinkedRecords) {
-		var ret []V2TasksPostRequestDataLinkedRecordsInner
+		var ret []interface{}
 		return ret
 	}
 	return o.LinkedRecords
@@ -135,7 +125,7 @@ func (o *V2TasksTaskIdPatchRequestData) GetLinkedRecords() []V2TasksPostRequestD
 
 // GetLinkedRecordsOk returns a tuple with the LinkedRecords field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V2TasksTaskIdPatchRequestData) GetLinkedRecordsOk() ([]V2TasksPostRequestDataLinkedRecordsInner, bool) {
+func (o *V2TasksTaskIdPatchRequestData) GetLinkedRecordsOk() ([]interface{}, bool) {
 	if o == nil || IsNil(o.LinkedRecords) {
 		return nil, false
 	}
@@ -151,15 +141,15 @@ func (o *V2TasksTaskIdPatchRequestData) HasLinkedRecords() bool {
 	return false
 }
 
-// SetLinkedRecords gets a reference to the given []V2TasksPostRequestDataLinkedRecordsInner and assigns it to the LinkedRecords field.
-func (o *V2TasksTaskIdPatchRequestData) SetLinkedRecords(v []V2TasksPostRequestDataLinkedRecordsInner) {
+// SetLinkedRecords gets a reference to the given []interface{} and assigns it to the LinkedRecords field.
+func (o *V2TasksTaskIdPatchRequestData) SetLinkedRecords(v []interface{}) {
 	o.LinkedRecords = v
 }
 
 // GetAssignees returns the Assignees field value if set, zero value otherwise.
-func (o *V2TasksTaskIdPatchRequestData) GetAssignees() []V2TasksPostRequestDataAssigneesInner {
+func (o *V2TasksTaskIdPatchRequestData) GetAssignees() []V2TasksTaskIdPatchRequestDataAssigneesInner {
 	if o == nil || IsNil(o.Assignees) {
-		var ret []V2TasksPostRequestDataAssigneesInner
+		var ret []V2TasksTaskIdPatchRequestDataAssigneesInner
 		return ret
 	}
 	return o.Assignees
@@ -167,7 +157,7 @@ func (o *V2TasksTaskIdPatchRequestData) GetAssignees() []V2TasksPostRequestDataA
 
 // GetAssigneesOk returns a tuple with the Assignees field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V2TasksTaskIdPatchRequestData) GetAssigneesOk() ([]V2TasksPostRequestDataAssigneesInner, bool) {
+func (o *V2TasksTaskIdPatchRequestData) GetAssigneesOk() ([]V2TasksTaskIdPatchRequestDataAssigneesInner, bool) {
 	if o == nil || IsNil(o.Assignees) {
 		return nil, false
 	}
@@ -183,8 +173,8 @@ func (o *V2TasksTaskIdPatchRequestData) HasAssignees() bool {
 	return false
 }
 
-// SetAssignees gets a reference to the given []V2TasksPostRequestDataAssigneesInner and assigns it to the Assignees field.
-func (o *V2TasksTaskIdPatchRequestData) SetAssignees(v []V2TasksPostRequestDataAssigneesInner) {
+// SetAssignees gets a reference to the given []V2TasksTaskIdPatchRequestDataAssigneesInner and assigns it to the Assignees field.
+func (o *V2TasksTaskIdPatchRequestData) SetAssignees(v []V2TasksTaskIdPatchRequestDataAssigneesInner) {
 	o.Assignees = v
 }
 
@@ -198,8 +188,8 @@ func (o V2TasksTaskIdPatchRequestData) MarshalJSON() ([]byte, error) {
 
 func (o V2TasksTaskIdPatchRequestData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DeadlineAt.IsSet() {
-		toSerialize["deadline_at"] = o.DeadlineAt.Get()
+	if !IsNil(o.DeadlineAt) {
+		toSerialize["deadline_at"] = o.DeadlineAt
 	}
 	if !IsNil(o.IsCompleted) {
 		toSerialize["is_completed"] = o.IsCompleted

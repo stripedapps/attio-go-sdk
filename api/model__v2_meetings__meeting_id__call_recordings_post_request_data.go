@@ -13,8 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the V2MeetingsMeetingIdCallRecordingsPostRequestData type satisfies the MappedNullable interface at compile time
@@ -22,19 +20,18 @@ var _ MappedNullable = &V2MeetingsMeetingIdCallRecordingsPostRequestData{}
 
 // V2MeetingsMeetingIdCallRecordingsPostRequestData struct for V2MeetingsMeetingIdCallRecordingsPostRequestData
 type V2MeetingsMeetingIdCallRecordingsPostRequestData struct {
-	// A publicly accessible URL to a video file of the call recording. Attio will download the video from this URL asynchronously.  **Requirements:** - **Protocol:** The URL must use the `https` protocol. - **File type:** The file must be a `.mp4` file. - **File size:** The file must not exceed 500MB in size. - **Accessibility:** For the request to be accepted, the URL must be publicly accessible. Attio will make a `HEAD` request to the URL to verify its accessibility and retrieve file metadata. The response to this request must include a `Content-Length` header.
-	VideoUrl string `json:"video_url"`
+	// A publicly accessible URL to a video file of the call recording. Attio will download the video from this URL asynchronously.  This field is optional — a call recording can be created with only a `transcript` and no video.  **Requirements:** - **Protocol:** The URL must use the `https` protocol. - **File type:** The file must be a `.mp4` file. - **File size:** The file must not exceed 1GB in size. - **Accessibility:** For the request to be accepted, the URL must be publicly accessible. Attio will make a `HEAD` request to the URL to verify its accessibility and retrieve file metadata. The response to this request must include a `Content-Length` header.
+	VideoUrl *string `json:"video_url,omitempty"`
+	// The call recording's transcript.  This field is technically optional for backwards compatibility, but you should always provide it — a call recording created without a transcript will be missing summaries and other transcript-derived features. This field will become required in a future version of this endpoint.
+	Transcript []V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner `json:"transcript,omitempty"`
 }
-
-type _V2MeetingsMeetingIdCallRecordingsPostRequestData V2MeetingsMeetingIdCallRecordingsPostRequestData
 
 // NewV2MeetingsMeetingIdCallRecordingsPostRequestData instantiates a new V2MeetingsMeetingIdCallRecordingsPostRequestData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2MeetingsMeetingIdCallRecordingsPostRequestData(videoUrl string) *V2MeetingsMeetingIdCallRecordingsPostRequestData {
+func NewV2MeetingsMeetingIdCallRecordingsPostRequestData() *V2MeetingsMeetingIdCallRecordingsPostRequestData {
 	this := V2MeetingsMeetingIdCallRecordingsPostRequestData{}
-	this.VideoUrl = videoUrl
 	return &this
 }
 
@@ -46,28 +43,68 @@ func NewV2MeetingsMeetingIdCallRecordingsPostRequestDataWithDefaults() *V2Meetin
 	return &this
 }
 
-// GetVideoUrl returns the VideoUrl field value
+// GetVideoUrl returns the VideoUrl field value if set, zero value otherwise.
 func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) GetVideoUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.VideoUrl
+	return *o.VideoUrl
 }
 
-// GetVideoUrlOk returns a tuple with the VideoUrl field value
+// GetVideoUrlOk returns a tuple with the VideoUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) GetVideoUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.VideoUrl) {
 		return nil, false
 	}
-	return &o.VideoUrl, true
+	return o.VideoUrl, true
 }
 
-// SetVideoUrl sets field value
+// HasVideoUrl returns a boolean if a field has been set.
+func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) HasVideoUrl() bool {
+	if o != nil && !IsNil(o.VideoUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetVideoUrl gets a reference to the given string and assigns it to the VideoUrl field.
 func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) SetVideoUrl(v string) {
-	o.VideoUrl = v
+	o.VideoUrl = &v
+}
+
+// GetTranscript returns the Transcript field value if set, zero value otherwise.
+func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) GetTranscript() []V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner {
+	if o == nil || IsNil(o.Transcript) {
+		var ret []V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner
+		return ret
+	}
+	return o.Transcript
+}
+
+// GetTranscriptOk returns a tuple with the Transcript field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) GetTranscriptOk() ([]V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner, bool) {
+	if o == nil || IsNil(o.Transcript) {
+		return nil, false
+	}
+	return o.Transcript, true
+}
+
+// HasTranscript returns a boolean if a field has been set.
+func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) HasTranscript() bool {
+	if o != nil && !IsNil(o.Transcript) {
+		return true
+	}
+
+	return false
+}
+
+// SetTranscript gets a reference to the given []V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner and assigns it to the Transcript field.
+func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) SetTranscript(v []V2MeetingsMeetingIdCallRecordingsPostRequestDataTranscriptInner) {
+	o.Transcript = v
 }
 
 func (o V2MeetingsMeetingIdCallRecordingsPostRequestData) MarshalJSON() ([]byte, error) {
@@ -80,45 +117,13 @@ func (o V2MeetingsMeetingIdCallRecordingsPostRequestData) MarshalJSON() ([]byte,
 
 func (o V2MeetingsMeetingIdCallRecordingsPostRequestData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["video_url"] = o.VideoUrl
+	if !IsNil(o.VideoUrl) {
+		toSerialize["video_url"] = o.VideoUrl
+	}
+	if !IsNil(o.Transcript) {
+		toSerialize["transcript"] = o.Transcript
+	}
 	return toSerialize, nil
-}
-
-func (o *V2MeetingsMeetingIdCallRecordingsPostRequestData) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"video_url",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varV2MeetingsMeetingIdCallRecordingsPostRequestData := _V2MeetingsMeetingIdCallRecordingsPostRequestData{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV2MeetingsMeetingIdCallRecordingsPostRequestData)
-
-	if err != nil {
-		return err
-	}
-
-	*o = V2MeetingsMeetingIdCallRecordingsPostRequestData(varV2MeetingsMeetingIdCallRecordingsPostRequestData)
-
-	return err
 }
 
 type NullableV2MeetingsMeetingIdCallRecordingsPostRequestData struct {

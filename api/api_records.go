@@ -24,6 +24,164 @@ import (
 // RecordsAPIService RecordsAPI service
 type RecordsAPIService service
 
+type ApiV2ObjectsObjectRecordsMergePostRequest struct {
+	ctx context.Context
+	ApiService *RecordsAPIService
+	object string
+	v2ObjectsObjectRecordsMergePostRequest *V2ObjectsObjectRecordsMergePostRequest
+}
+
+func (r ApiV2ObjectsObjectRecordsMergePostRequest) V2ObjectsObjectRecordsMergePostRequest(v2ObjectsObjectRecordsMergePostRequest V2ObjectsObjectRecordsMergePostRequest) ApiV2ObjectsObjectRecordsMergePostRequest {
+	r.v2ObjectsObjectRecordsMergePostRequest = &v2ObjectsObjectRecordsMergePostRequest
+	return r
+}
+
+func (r ApiV2ObjectsObjectRecordsMergePostRequest) Execute() (*V2ObjectsObjectRecordsMergePost200Response, *http.Response, error) {
+	return r.ApiService.V2ObjectsObjectRecordsMergePostExecute(r)
+}
+
+/*
+V2ObjectsObjectRecordsMergePost Merge two records
+
+Merges two records of the same object together. Where both records have a value for the same attribute, the primary record's value takes precedence.
+
+Merging produces a **new** record, so the `new_record_id` returned will match neither of the records supplied in the request. Both of the original records are marked as merged and can no longer be read or written.
+
+Large merges are completed asynchronously. A `200` response means the merged record is readable immediately. A `202` response means the merge has been accepted but is still being applied, and reading the merged record will return a `404` with the `merge_in_progress` error code until it completes.
+
+This endpoint is not idempotent. Because both original records are marked as merged, repeating the same request returns `404`.
+
+This endpoint is rate limited to 5 requests per second.
+
+This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users.
+
+Required scopes: `record_permission:read-write`, `object_configuration:read`.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param object
+ @return ApiV2ObjectsObjectRecordsMergePostRequest
+*/
+func (a *RecordsAPIService) V2ObjectsObjectRecordsMergePost(ctx context.Context, object string) ApiV2ObjectsObjectRecordsMergePostRequest {
+	return ApiV2ObjectsObjectRecordsMergePostRequest{
+		ApiService: a,
+		ctx: ctx,
+		object: object,
+	}
+}
+
+// Execute executes the request
+//  @return V2ObjectsObjectRecordsMergePost200Response
+func (a *RecordsAPIService) V2ObjectsObjectRecordsMergePostExecute(r ApiV2ObjectsObjectRecordsMergePostRequest) (*V2ObjectsObjectRecordsMergePost200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *V2ObjectsObjectRecordsMergePost200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecordsAPIService.V2ObjectsObjectRecordsMergePost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2/objects/{object}/records/merge"
+	localVarPath = strings.Replace(localVarPath, "{"+"object"+"}", url.PathEscape(parameterValueToString(r.object, "object")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.v2ObjectsObjectRecordsMergePostRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsMergePostRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.v2ObjectsObjectRecordsMergePostRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v V2ObjectsObjectRecordsMergePost400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v V2ObjectsObjectRecordsMergePost403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v V2ObjectsObjectRecordsMergePost404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiV2ObjectsObjectRecordsPostRequest struct {
 	ctx context.Context
 	ApiService *RecordsAPIService
@@ -43,7 +201,7 @@ func (r ApiV2ObjectsObjectRecordsPostRequest) Execute() (*V2ObjectsObjectRecords
 /*
 V2ObjectsObjectRecordsPost Create a record
 
-Creates a new person, company or other record. This endpoint will throw on conflicts of unique attributes. If you would prefer to update records on conflicts, please use the [Assert record endpoint](/rest-api/endpoint-reference/records/assert-a-record) instead.
+Creates a new person, company or other record. This endpoint will throw on conflicts of unique attributes. If you would prefer to update records on conflicts, please use the [Upsert record endpoint](/rest-api/endpoint-reference/records/upsert-a-record) instead.
 
 Required scopes: `record_permission:read-write`, `object_configuration:read`.
 
@@ -184,7 +342,7 @@ func (r ApiV2ObjectsObjectRecordsPutRequest) Execute() (*V2ObjectsObjectRecordsP
 }
 
 /*
-V2ObjectsObjectRecordsPut Assert a record
+V2ObjectsObjectRecordsPut Upsert a record
 
 Use this endpoint to create or update people, companies and other records. A matching attribute is used to search for existing records. If a record is found with the same value for the matching attribute, that record will be updated. If no record with the same value for the matching attribute is found, a new record will be created instead. If you would like to avoid matching, please use the [Create record endpoint](/rest-api/endpoint-reference/records/create-a-record).
 
@@ -528,7 +686,6 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdAttributesAttributeVal
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", r.showHistoric, "form", "")
 	} else {
 		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", defaultValue, "form", "")
 		r.showHistoric = &defaultValue
 	}
 	if r.limit != nil {
@@ -707,7 +864,7 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdDeleteExecute(r ApiV2O
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v V2ObjectsObjectRecordsRecordIdGet404Response
+			var v V2ObjectsObjectRecordsRecordIdDelete404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -982,11 +1139,11 @@ type ApiV2ObjectsObjectRecordsRecordIdPatchRequest struct {
 	ApiService *RecordsAPIService
 	object string
 	recordId string
-	v2ObjectsObjectRecordsRecordIdPatchRequest *V2ObjectsObjectRecordsRecordIdPatchRequest
+	v2ObjectsObjectRecordsPutRequest *V2ObjectsObjectRecordsPutRequest
 }
 
-func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsRecordIdPatchRequest(v2ObjectsObjectRecordsRecordIdPatchRequest V2ObjectsObjectRecordsRecordIdPatchRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
-	r.v2ObjectsObjectRecordsRecordIdPatchRequest = &v2ObjectsObjectRecordsRecordIdPatchRequest
+func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest V2ObjectsObjectRecordsPutRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
+	r.v2ObjectsObjectRecordsPutRequest = &v2ObjectsObjectRecordsPutRequest
 	return r
 }
 
@@ -1037,8 +1194,8 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ObjectsObjectRecordsRecordIdPatchRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsRecordIdPatchRequest is required and must be specified")
+	if r.v2ObjectsObjectRecordsPutRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsPutRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1059,7 +1216,7 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ObjectsObjectRecordsRecordIdPatchRequest
+	localVarPostBody = r.v2ObjectsObjectRecordsPutRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

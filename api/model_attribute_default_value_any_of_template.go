@@ -42,7 +42,7 @@ func (dst *AttributeDefaultValueAnyOfTemplate) UnmarshalJSON(data []byte) error 
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *AttributeDefaultValueAnyOfTemplate) MarshalJSON() ([]byte, error) {
+func (src AttributeDefaultValueAnyOfTemplate) MarshalJSON() ([]byte, error) {
 	if src.String != nil {
 		return json.Marshal(&src.String)
 	}

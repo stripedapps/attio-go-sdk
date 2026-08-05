@@ -26,6 +26,7 @@ type InputValue struct {
 	InputValueAnyOf12 *InputValueAnyOf12
 	InputValueAnyOf13 *InputValueAnyOf13
 	InputValueAnyOf14 *InputValueAnyOf14
+	InputValueAnyOf15 *InputValueAnyOf15
 	InputValueAnyOf2 *InputValueAnyOf2
 	InputValueAnyOf3 *InputValueAnyOf3
 	InputValueAnyOf4 *InputValueAnyOf4
@@ -34,10 +35,9 @@ type InputValue struct {
 	InputValueAnyOf7 *InputValueAnyOf7
 	InputValueAnyOf8 *InputValueAnyOf8
 	InputValueAnyOf9 *InputValueAnyOf9
-	V2TasksPostRequestDataAssigneesInnerAnyOf1 *V2TasksPostRequestDataAssigneesInnerAnyOf1
-	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1
-	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf
-	V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 *V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1
+	V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1 *V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1
+	V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf *V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf
+	V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 *V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -132,6 +132,19 @@ func (dst *InputValue) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.InputValueAnyOf14 = nil
+	}
+
+	// try to unmarshal JSON data into InputValueAnyOf15
+	err = json.Unmarshal(data, &dst.InputValueAnyOf15);
+	if err == nil {
+		jsonInputValueAnyOf15, _ := json.Marshal(dst.InputValueAnyOf15)
+		if string(jsonInputValueAnyOf15) == "{}" { // empty struct
+			dst.InputValueAnyOf15 = nil
+		} else {
+			return nil // data stored in dst.InputValueAnyOf15, return on the first match
+		}
+	} else {
+		dst.InputValueAnyOf15 = nil
 	}
 
 	// try to unmarshal JSON data into InputValueAnyOf2
@@ -238,56 +251,43 @@ func (dst *InputValue) UnmarshalJSON(data []byte) error {
 		dst.InputValueAnyOf9 = nil
 	}
 
-	// try to unmarshal JSON data into V2TasksPostRequestDataAssigneesInnerAnyOf1
-	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataAssigneesInnerAnyOf1);
+	// try to unmarshal JSON data into V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1
+	err = json.Unmarshal(data, &dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1);
 	if err == nil {
-		jsonV2TasksPostRequestDataAssigneesInnerAnyOf1, _ := json.Marshal(dst.V2TasksPostRequestDataAssigneesInnerAnyOf1)
-		if string(jsonV2TasksPostRequestDataAssigneesInnerAnyOf1) == "{}" { // empty struct
-			dst.V2TasksPostRequestDataAssigneesInnerAnyOf1 = nil
+		jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1, _ := json.Marshal(dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1)
+		if string(jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1) == "{}" { // empty struct
+			dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.V2TasksPostRequestDataAssigneesInnerAnyOf1, return on the first match
+			return nil // data stored in dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1, return on the first match
 		}
 	} else {
-		dst.V2TasksPostRequestDataAssigneesInnerAnyOf1 = nil
+		dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1 = nil
 	}
 
-	// try to unmarshal JSON data into V2TasksPostRequestDataLinkedRecordsInnerAnyOf1
-	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1);
+	// try to unmarshal JSON data into V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf
+	err = json.Unmarshal(data, &dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf);
 	if err == nil {
-		jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1, _ := json.Marshal(dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1)
-		if string(jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1) == "{}" { // empty struct
-			dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 = nil
+		jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf, _ := json.Marshal(dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf)
+		if string(jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf) == "{}" { // empty struct
+			dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf = nil
 		} else {
-			return nil // data stored in dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1, return on the first match
+			return nil // data stored in dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf, return on the first match
 		}
 	} else {
-		dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 = nil
+		dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf
-	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf);
+	// try to unmarshal JSON data into V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1
+	err = json.Unmarshal(data, &dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1);
 	if err == nil {
-		jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf, _ := json.Marshal(dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf)
-		if string(jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf) == "{}" { // empty struct
-			dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf = nil
+		jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1, _ := json.Marshal(dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1)
+		if string(jsonV2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1) == "{}" { // empty struct
+			dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf, return on the first match
+			return nil // data stored in dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1, return on the first match
 		}
 	} else {
-		dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf = nil
-	}
-
-	// try to unmarshal JSON data into V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1
-	err = json.Unmarshal(data, &dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1);
-	if err == nil {
-		jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1, _ := json.Marshal(dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1)
-		if string(jsonV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1) == "{}" { // empty struct
-			dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 = nil
-		} else {
-			return nil // data stored in dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1, return on the first match
-		}
-	} else {
-		dst.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 = nil
+		dst.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(InputValue)")
@@ -323,6 +323,10 @@ func (src InputValue) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.InputValueAnyOf14)
 	}
 
+	if src.InputValueAnyOf15 != nil {
+		return json.Marshal(&src.InputValueAnyOf15)
+	}
+
 	if src.InputValueAnyOf2 != nil {
 		return json.Marshal(&src.InputValueAnyOf2)
 	}
@@ -355,20 +359,16 @@ func (src InputValue) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.InputValueAnyOf9)
 	}
 
-	if src.V2TasksPostRequestDataAssigneesInnerAnyOf1 != nil {
-		return json.Marshal(&src.V2TasksPostRequestDataAssigneesInnerAnyOf1)
+	if src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1 != nil {
+		return json.Marshal(&src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1)
 	}
 
-	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1 != nil {
-		return json.Marshal(&src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1)
+	if src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf != nil {
+		return json.Marshal(&src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf)
 	}
 
-	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf != nil {
-		return json.Marshal(&src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf)
-	}
-
-	if src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 != nil {
-		return json.Marshal(&src.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1)
+	if src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1 != nil {
+		return json.Marshal(&src.V2TasksTaskIdPatchRequestDataLinkedRecordsAnyOfInnerAnyOf1SlugOrIdOfMatchingAttributeInnerAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

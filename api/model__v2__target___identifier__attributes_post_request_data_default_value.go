@@ -21,6 +21,7 @@ import (
 type V2TargetIdentifierAttributesPostRequestDataDefaultValue struct {
 	V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf *V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf
 	V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 *V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1
+	Any *interface{}
 }
 
 // V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOfAsV2TargetIdentifierAttributesPostRequestDataDefaultValue is a convenience function that returns V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf wrapped in V2TargetIdentifierAttributesPostRequestDataDefaultValue
@@ -37,15 +38,17 @@ func V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1AsV2TargetIden
 	}
 }
 
+// interface{}AsV2TargetIdentifierAttributesPostRequestDataDefaultValue is a convenience function that returns interface{} wrapped in V2TargetIdentifierAttributesPostRequestDataDefaultValue
+func AnyAsV2TargetIdentifierAttributesPostRequestDataDefaultValue(v *interface{}) V2TargetIdentifierAttributesPostRequestDataDefaultValue {
+	return V2TargetIdentifierAttributesPostRequestDataDefaultValue{
+		Any: v,
+	}
+}
+
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *V2TargetIdentifierAttributesPostRequestDataDefaultValue) UnmarshalJSON(data []byte) error {
 	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
 	match := 0
 	// try to unmarshal data into V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf
 	err = newStrictDecoder(data).Decode(&dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
@@ -81,10 +84,28 @@ func (dst *V2TargetIdentifierAttributesPostRequestDataDefaultValue) UnmarshalJSO
 		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 = nil
 	}
 
+	// try to unmarshal data into Any
+	err = newStrictDecoder(data).Decode(&dst.Any)
+	if err == nil {
+		jsonAny, _ := json.Marshal(dst.Any)
+		if string(jsonAny) == "{}" { // empty struct
+			dst.Any = nil
+		} else {
+			if err = validator.Validate(dst.Any); err != nil {
+				dst.Any = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.Any = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
 		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 = nil
+		dst.Any = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(V2TargetIdentifierAttributesPostRequestDataDefaultValue)")
 	} else if match == 1 {
@@ -104,6 +125,10 @@ func (src V2TargetIdentifierAttributesPostRequestDataDefaultValue) MarshalJSON()
 		return json.Marshal(&src.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1)
 	}
 
+	if src.Any != nil {
+		return json.Marshal(&src.Any)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -120,6 +145,10 @@ func (obj *V2TargetIdentifierAttributesPostRequestDataDefaultValue) GetActualIns
 		return obj.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1
 	}
 
+	if obj.Any != nil {
+		return obj.Any
+	}
+
 	// all schemas are nil
 	return nil
 }
@@ -132,6 +161,10 @@ func (obj V2TargetIdentifierAttributesPostRequestDataDefaultValue) GetActualInst
 
 	if obj.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 != nil {
 		return *obj.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1
+	}
+
+	if obj.Any != nil {
+		return *obj.Any
 	}
 
 	// all schemas are nil

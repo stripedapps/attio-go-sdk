@@ -28,7 +28,7 @@ type V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDat
 	StartTime float32 `json:"start_time"`
 	// The end time of this speech segment in seconds, measured from the start of the recording.
 	EndTime float32 `json:"end_time"`
-	Speaker V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker `json:"speaker"`
+	Speaker V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker `json:"speaker"`
 }
 
 type _V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner
@@ -37,7 +37,7 @@ type _V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDa
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner(speech string, startTime float32, endTime float32, speaker V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker) *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner {
+func NewV2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner(speech string, startTime float32, endTime float32, speaker V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker) *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner {
 	this := V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner{}
 	this.Speech = speech
 	this.StartTime = startTime
@@ -127,9 +127,9 @@ func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200Respons
 }
 
 // GetSpeaker returns the Speaker field value
-func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) GetSpeaker() V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker {
+func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) GetSpeaker() V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker {
 	if o == nil {
-		var ret V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker
+		var ret V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker
 		return ret
 	}
 
@@ -138,7 +138,7 @@ func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200Respons
 
 // GetSpeakerOk returns a tuple with the Speaker field value
 // and a boolean to check if the value has been set.
-func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) GetSpeakerOk() (*V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker, bool) {
+func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) GetSpeakerOk() (*V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200Respons
 }
 
 // SetSpeaker sets field value
-func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) SetSpeaker(v V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInnerSpeaker) {
+func (o *V2MeetingsMeetingIdCallRecordingsCallRecordingIdTranscriptGet200ResponseDataTranscriptInner) SetSpeaker(v V2MeetingsMeetingIdCallRecordingsCallRecordingIdGet200ResponseDataTranscriptSegmentsInnerSpeaker) {
 	o.Speaker = v
 }
 

@@ -20,8 +20,10 @@ var _ MappedNullable = &V2ObjectsObjectRecordsQueryPostRequest{}
 
 // V2ObjectsObjectRecordsQueryPostRequest struct for V2ObjectsObjectRecordsQueryPostRequest
 type V2ObjectsObjectRecordsQueryPostRequest struct {
-	// An object used to filter results to a subset of results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting).
+	// An object used to filter results to a subset of results. Cannot be used together with `filter_view_id`. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting).
 	Filter map[string]interface{} `json:"filter,omitempty"`
+	// UUID of a saved view on this object or list. When set, results are filtered using that view's filter configuration. Cannot be used together with `filter`. Note: sorts, limits, and offsets are applied independently and are not taken from the view. All attributes are returned regardless of which attributes are visible in the view.
+	FilterViewId *string `json:"filter_view_id,omitempty"`
 	// An object used to sort results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting).
 	Sorts []V2ObjectsObjectRecordsQueryPostRequestSortsInner `json:"sorts,omitempty"`
 	// The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination).
@@ -77,6 +79,38 @@ func (o *V2ObjectsObjectRecordsQueryPostRequest) HasFilter() bool {
 // SetFilter gets a reference to the given map[string]interface{} and assigns it to the Filter field.
 func (o *V2ObjectsObjectRecordsQueryPostRequest) SetFilter(v map[string]interface{}) {
 	o.Filter = v
+}
+
+// GetFilterViewId returns the FilterViewId field value if set, zero value otherwise.
+func (o *V2ObjectsObjectRecordsQueryPostRequest) GetFilterViewId() string {
+	if o == nil || IsNil(o.FilterViewId) {
+		var ret string
+		return ret
+	}
+	return *o.FilterViewId
+}
+
+// GetFilterViewIdOk returns a tuple with the FilterViewId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsQueryPostRequest) GetFilterViewIdOk() (*string, bool) {
+	if o == nil || IsNil(o.FilterViewId) {
+		return nil, false
+	}
+	return o.FilterViewId, true
+}
+
+// HasFilterViewId returns a boolean if a field has been set.
+func (o *V2ObjectsObjectRecordsQueryPostRequest) HasFilterViewId() bool {
+	if o != nil && !IsNil(o.FilterViewId) {
+		return true
+	}
+
+	return false
+}
+
+// SetFilterViewId gets a reference to the given string and assigns it to the FilterViewId field.
+func (o *V2ObjectsObjectRecordsQueryPostRequest) SetFilterViewId(v string) {
+	o.FilterViewId = &v
 }
 
 // GetSorts returns the Sorts field value if set, zero value otherwise.
@@ -187,6 +221,9 @@ func (o V2ObjectsObjectRecordsQueryPostRequest) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Filter) {
 		toSerialize["filter"] = o.Filter
+	}
+	if !IsNil(o.FilterViewId) {
+		toSerialize["filter_view_id"] = o.FilterViewId
 	}
 	if !IsNil(o.Sorts) {
 		toSerialize["sorts"] = o.Sorts

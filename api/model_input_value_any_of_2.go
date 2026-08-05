@@ -22,8 +22,8 @@ var _ MappedNullable = &InputValueAnyOf2{}
 
 // InputValueAnyOf2 struct for InputValueAnyOf2
 type InputValueAnyOf2 struct {
-	// A numerical representation of the currency value. A decimal with a max of 4 decimal places.
-	CurrencyValue float32 `json:"currency_value"`
+	// A boolean representing whether the checkbox is checked or not. The string values 'true' and 'false' are also accepted.
+	Value bool `json:"value"`
 }
 
 type _InputValueAnyOf2 InputValueAnyOf2
@@ -32,9 +32,9 @@ type _InputValueAnyOf2 InputValueAnyOf2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputValueAnyOf2(currencyValue float32) *InputValueAnyOf2 {
+func NewInputValueAnyOf2(value bool) *InputValueAnyOf2 {
 	this := InputValueAnyOf2{}
-	this.CurrencyValue = currencyValue
+	this.Value = value
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewInputValueAnyOf2WithDefaults() *InputValueAnyOf2 {
 	return &this
 }
 
-// GetCurrencyValue returns the CurrencyValue field value
-func (o *InputValueAnyOf2) GetCurrencyValue() float32 {
+// GetValue returns the Value field value
+func (o *InputValueAnyOf2) GetValue() bool {
 	if o == nil {
-		var ret float32
+		var ret bool
 		return ret
 	}
 
-	return o.CurrencyValue
+	return o.Value
 }
 
-// GetCurrencyValueOk returns a tuple with the CurrencyValue field value
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *InputValueAnyOf2) GetCurrencyValueOk() (*float32, bool) {
+func (o *InputValueAnyOf2) GetValueOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CurrencyValue, true
+	return &o.Value, true
 }
 
-// SetCurrencyValue sets field value
-func (o *InputValueAnyOf2) SetCurrencyValue(v float32) {
-	o.CurrencyValue = v
+// SetValue sets field value
+func (o *InputValueAnyOf2) SetValue(v bool) {
+	o.Value = v
 }
 
 func (o InputValueAnyOf2) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o InputValueAnyOf2) MarshalJSON() ([]byte, error) {
 
 func (o InputValueAnyOf2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["currency_value"] = o.CurrencyValue
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *InputValueAnyOf2) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"currency_value",
+		"value",
 	}
 
 	allProperties := make(map[string]interface{})

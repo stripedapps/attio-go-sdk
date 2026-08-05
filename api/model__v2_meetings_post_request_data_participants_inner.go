@@ -22,11 +22,13 @@ var _ MappedNullable = &V2MeetingsPostRequestDataParticipantsInner{}
 
 // V2MeetingsPostRequestDataParticipantsInner struct for V2MeetingsPostRequestDataParticipantsInner
 type V2MeetingsPostRequestDataParticipantsInner struct {
-	// The email address of the participant. New person records and companies will automatically be created based upon the email address values provided.
-	EmailAddress string `json:"email_address"`
+	// The email address of the participant. New person records and companies will automatically be created based upon the email address values provided. If omitted, a name must be provided instead.
+	EmailAddress *string `json:"email_address,omitempty"`
 	IsOrganizer V2MeetingsPostRequestDataParticipantsInnerIsOrganizer `json:"is_organizer"`
 	// The status of the individual meeting participant.
 	Status string `json:"status"`
+	// The name of the participant. Required when no email_address is provided. Participants without an email do not create person or company records.
+	Name *string `json:"name,omitempty"`
 }
 
 type _V2MeetingsPostRequestDataParticipantsInner V2MeetingsPostRequestDataParticipantsInner
@@ -35,9 +37,8 @@ type _V2MeetingsPostRequestDataParticipantsInner V2MeetingsPostRequestDataPartic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2MeetingsPostRequestDataParticipantsInner(emailAddress string, isOrganizer V2MeetingsPostRequestDataParticipantsInnerIsOrganizer, status string) *V2MeetingsPostRequestDataParticipantsInner {
+func NewV2MeetingsPostRequestDataParticipantsInner(isOrganizer V2MeetingsPostRequestDataParticipantsInnerIsOrganizer, status string) *V2MeetingsPostRequestDataParticipantsInner {
 	this := V2MeetingsPostRequestDataParticipantsInner{}
-	this.EmailAddress = emailAddress
 	this.IsOrganizer = isOrganizer
 	this.Status = status
 	return &this
@@ -51,28 +52,36 @@ func NewV2MeetingsPostRequestDataParticipantsInnerWithDefaults() *V2MeetingsPost
 	return &this
 }
 
-// GetEmailAddress returns the EmailAddress field value
+// GetEmailAddress returns the EmailAddress field value if set, zero value otherwise.
 func (o *V2MeetingsPostRequestDataParticipantsInner) GetEmailAddress() string {
-	if o == nil {
+	if o == nil || IsNil(o.EmailAddress) {
 		var ret string
 		return ret
 	}
-
-	return o.EmailAddress
+	return *o.EmailAddress
 }
 
-// GetEmailAddressOk returns a tuple with the EmailAddress field value
+// GetEmailAddressOk returns a tuple with the EmailAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *V2MeetingsPostRequestDataParticipantsInner) GetEmailAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EmailAddress) {
 		return nil, false
 	}
-	return &o.EmailAddress, true
+	return o.EmailAddress, true
 }
 
-// SetEmailAddress sets field value
+// HasEmailAddress returns a boolean if a field has been set.
+func (o *V2MeetingsPostRequestDataParticipantsInner) HasEmailAddress() bool {
+	if o != nil && !IsNil(o.EmailAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmailAddress gets a reference to the given string and assigns it to the EmailAddress field.
 func (o *V2MeetingsPostRequestDataParticipantsInner) SetEmailAddress(v string) {
-	o.EmailAddress = v
+	o.EmailAddress = &v
 }
 
 // GetIsOrganizer returns the IsOrganizer field value
@@ -123,6 +132,38 @@ func (o *V2MeetingsPostRequestDataParticipantsInner) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *V2MeetingsPostRequestDataParticipantsInner) GetName() string {
+	if o == nil || IsNil(o.Name) {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *V2MeetingsPostRequestDataParticipantsInner) GetNameOk() (*string, bool) {
+	if o == nil || IsNil(o.Name) {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *V2MeetingsPostRequestDataParticipantsInner) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *V2MeetingsPostRequestDataParticipantsInner) SetName(v string) {
+	o.Name = &v
+}
+
 func (o V2MeetingsPostRequestDataParticipantsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,9 +174,14 @@ func (o V2MeetingsPostRequestDataParticipantsInner) MarshalJSON() ([]byte, error
 
 func (o V2MeetingsPostRequestDataParticipantsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["email_address"] = o.EmailAddress
+	if !IsNil(o.EmailAddress) {
+		toSerialize["email_address"] = o.EmailAddress
+	}
 	toSerialize["is_organizer"] = o.IsOrganizer
 	toSerialize["status"] = o.Status
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	return toSerialize, nil
 }
 
@@ -144,7 +190,6 @@ func (o *V2MeetingsPostRequestDataParticipantsInner) UnmarshalJSON(data []byte) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"email_address",
 		"is_organizer",
 		"status",
 	}

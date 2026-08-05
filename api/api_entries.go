@@ -105,7 +105,6 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdAttributesAttributeValuesGe
 		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", r.showHistoric, "form", "")
 	} else {
 		var defaultValue bool = false
-		parameterAddToHeaderOrQuery(localVarQueryParams, "show_historic", defaultValue, "form", "")
 		r.showHistoric = &defaultValue
 	}
 	if r.limit != nil {
@@ -421,11 +420,11 @@ type ApiV2ListsListEntriesEntryIdPatchRequest struct {
 	ApiService *EntriesAPIService
 	list string
 	entryId string
-	v2ListsListEntriesEntryIdPatchRequest *V2ListsListEntriesEntryIdPatchRequest
+	v2ListsListEntriesEntryIdPutRequest *V2ListsListEntriesEntryIdPutRequest
 }
 
-func (r ApiV2ListsListEntriesEntryIdPatchRequest) V2ListsListEntriesEntryIdPatchRequest(v2ListsListEntriesEntryIdPatchRequest V2ListsListEntriesEntryIdPatchRequest) ApiV2ListsListEntriesEntryIdPatchRequest {
-	r.v2ListsListEntriesEntryIdPatchRequest = &v2ListsListEntriesEntryIdPatchRequest
+func (r ApiV2ListsListEntriesEntryIdPatchRequest) V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest V2ListsListEntriesEntryIdPutRequest) ApiV2ListsListEntriesEntryIdPatchRequest {
+	r.v2ListsListEntriesEntryIdPutRequest = &v2ListsListEntriesEntryIdPutRequest
 	return r
 }
 
@@ -476,8 +475,8 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdPatchExecute(r ApiV2ListsLi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ListsListEntriesEntryIdPatchRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ListsListEntriesEntryIdPatchRequest is required and must be specified")
+	if r.v2ListsListEntriesEntryIdPutRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ListsListEntriesEntryIdPutRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -498,7 +497,7 @@ func (a *EntriesAPIService) V2ListsListEntriesEntryIdPatchExecute(r ApiV2ListsLi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ListsListEntriesEntryIdPatchRequest
+	localVarPostBody = r.v2ListsListEntriesEntryIdPutRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -852,7 +851,7 @@ func (r ApiV2ListsListEntriesPutRequest) Execute() (*V2ListsListEntriesPut200Res
 }
 
 /*
-V2ListsListEntriesPut Assert a list entry by parent
+V2ListsListEntriesPut Upsert a list entry by parent
 
 Use this endpoint to create or update a list entry for a given parent record. If an entry with the specified parent record is found, that entry will be updated. If no such entry is found, a new entry will be created instead. If there are multiple entries with the same parent record, this endpoint with return the "MULTIPLE_MATCH_RESULTS" error. When writing to multi-select attributes, all values will be either created or deleted as necessary to match the list of values supplied in the request body.
 
@@ -976,11 +975,11 @@ type ApiV2ListsListEntriesQueryPostRequest struct {
 	ctx context.Context
 	ApiService *EntriesAPIService
 	list string
-	v2ListsListEntriesQueryPostRequest *V2ListsListEntriesQueryPostRequest
+	v2ObjectsObjectRecordsQueryPostRequest *V2ObjectsObjectRecordsQueryPostRequest
 }
 
-func (r ApiV2ListsListEntriesQueryPostRequest) V2ListsListEntriesQueryPostRequest(v2ListsListEntriesQueryPostRequest V2ListsListEntriesQueryPostRequest) ApiV2ListsListEntriesQueryPostRequest {
-	r.v2ListsListEntriesQueryPostRequest = &v2ListsListEntriesQueryPostRequest
+func (r ApiV2ListsListEntriesQueryPostRequest) V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest V2ObjectsObjectRecordsQueryPostRequest) ApiV2ListsListEntriesQueryPostRequest {
+	r.v2ObjectsObjectRecordsQueryPostRequest = &v2ObjectsObjectRecordsQueryPostRequest
 	return r
 }
 
@@ -1028,8 +1027,8 @@ func (a *EntriesAPIService) V2ListsListEntriesQueryPostExecute(r ApiV2ListsListE
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ListsListEntriesQueryPostRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ListsListEntriesQueryPostRequest is required and must be specified")
+	if r.v2ObjectsObjectRecordsQueryPostRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsQueryPostRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1050,7 +1049,7 @@ func (a *EntriesAPIService) V2ListsListEntriesQueryPostExecute(r ApiV2ListsListE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ListsListEntriesQueryPostRequest
+	localVarPostBody = r.v2ObjectsObjectRecordsQueryPostRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

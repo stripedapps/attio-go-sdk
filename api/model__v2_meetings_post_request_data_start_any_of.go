@@ -25,7 +25,7 @@ type V2MeetingsPostRequestDataStartAnyOf struct {
 	// An ISO 8601 datetime indicating when a non-all day meeting starts.
 	Datetime time.Time `json:"datetime"`
 	// The IANA timezone the meeting starts in. If a datetime value is provided without an offset, this timezone will be used to convert the datetime to UTC using the timezone offset. If a datetime value is provided with an offset, this timezone will not be used to apply any additional offset to the datetime. Invalid timezones will be treated as UTC.
-	Timezone NullableString `json:"timezone,omitempty"`
+	Timezone *string `json:"timezone,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -73,46 +73,36 @@ func (o *V2MeetingsPostRequestDataStartAnyOf) SetDatetime(v time.Time) {
 	o.Datetime = v
 }
 
-// GetTimezone returns the Timezone field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimezone returns the Timezone field value if set, zero value otherwise.
 func (o *V2MeetingsPostRequestDataStartAnyOf) GetTimezone() string {
-	if o == nil || IsNil(o.Timezone.Get()) {
+	if o == nil || IsNil(o.Timezone) {
 		var ret string
 		return ret
 	}
-	return *o.Timezone.Get()
+	return *o.Timezone
 }
 
 // GetTimezoneOk returns a tuple with the Timezone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *V2MeetingsPostRequestDataStartAnyOf) GetTimezoneOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Timezone) {
 		return nil, false
 	}
-	return o.Timezone.Get(), o.Timezone.IsSet()
+	return o.Timezone, true
 }
 
 // HasTimezone returns a boolean if a field has been set.
 func (o *V2MeetingsPostRequestDataStartAnyOf) HasTimezone() bool {
-	if o != nil && o.Timezone.IsSet() {
+	if o != nil && !IsNil(o.Timezone) {
 		return true
 	}
 
 	return false
 }
 
-// SetTimezone gets a reference to the given NullableString and assigns it to the Timezone field.
+// SetTimezone gets a reference to the given string and assigns it to the Timezone field.
 func (o *V2MeetingsPostRequestDataStartAnyOf) SetTimezone(v string) {
-	o.Timezone.Set(&v)
-}
-// SetTimezoneNil sets the value for Timezone to be an explicit nil
-func (o *V2MeetingsPostRequestDataStartAnyOf) SetTimezoneNil() {
-	o.Timezone.Set(nil)
-}
-
-// UnsetTimezone ensures that no value is present for Timezone, not even an explicit nil
-func (o *V2MeetingsPostRequestDataStartAnyOf) UnsetTimezone() {
-	o.Timezone.Unset()
+	o.Timezone = &v
 }
 
 func (o V2MeetingsPostRequestDataStartAnyOf) MarshalJSON() ([]byte, error) {
@@ -126,8 +116,8 @@ func (o V2MeetingsPostRequestDataStartAnyOf) MarshalJSON() ([]byte, error) {
 func (o V2MeetingsPostRequestDataStartAnyOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["datetime"] = o.Datetime
-	if o.Timezone.IsSet() {
-		toSerialize["timezone"] = o.Timezone.Get()
+	if !IsNil(o.Timezone) {
+		toSerialize["timezone"] = o.Timezone
 	}
 
 	for key, value := range o.AdditionalProperties {

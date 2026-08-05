@@ -29,6 +29,8 @@ type Task struct {
 	DeadlineAt NullableString `json:"deadline_at"`
 	// Whether the task has been completed.
 	IsCompleted bool `json:"is_completed"`
+	// When the task was completed, or null if it has not been completed.
+	CompletedAt NullableString `json:"completed_at"`
 	// Records linked to the task. Creating record links within task content text is not possible via the API at present.
 	LinkedRecords []TaskLinkedRecordsInner `json:"linked_records"`
 	// Workspace members assigned to this task.
@@ -44,12 +46,13 @@ type _Task Task
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTask(id TaskId, contentPlaintext string, deadlineAt NullableString, isCompleted bool, linkedRecords []TaskLinkedRecordsInner, assignees []TaskAssigneesInner, createdByActor TaskCreatedByActor, createdAt string) *Task {
+func NewTask(id TaskId, contentPlaintext string, deadlineAt NullableString, isCompleted bool, completedAt NullableString, linkedRecords []TaskLinkedRecordsInner, assignees []TaskAssigneesInner, createdByActor TaskCreatedByActor, createdAt string) *Task {
 	this := Task{}
 	this.Id = id
 	this.ContentPlaintext = contentPlaintext
 	this.DeadlineAt = deadlineAt
 	this.IsCompleted = isCompleted
+	this.CompletedAt = completedAt
 	this.LinkedRecords = linkedRecords
 	this.Assignees = assignees
 	this.CreatedByActor = createdByActor
@@ -163,6 +166,32 @@ func (o *Task) SetIsCompleted(v bool) {
 	o.IsCompleted = v
 }
 
+// GetCompletedAt returns the CompletedAt field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *Task) GetCompletedAt() string {
+	if o == nil || o.CompletedAt.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.CompletedAt.Get()
+}
+
+// GetCompletedAtOk returns a tuple with the CompletedAt field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Task) GetCompletedAtOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CompletedAt.Get(), o.CompletedAt.IsSet()
+}
+
+// SetCompletedAt sets field value
+func (o *Task) SetCompletedAt(v string) {
+	o.CompletedAt.Set(&v)
+}
+
 // GetLinkedRecords returns the LinkedRecords field value
 func (o *Task) GetLinkedRecords() []TaskLinkedRecordsInner {
 	if o == nil {
@@ -273,6 +302,7 @@ func (o Task) ToMap() (map[string]interface{}, error) {
 	toSerialize["content_plaintext"] = o.ContentPlaintext
 	toSerialize["deadline_at"] = o.DeadlineAt.Get()
 	toSerialize["is_completed"] = o.IsCompleted
+	toSerialize["completed_at"] = o.CompletedAt.Get()
 	toSerialize["linked_records"] = o.LinkedRecords
 	toSerialize["assignees"] = o.Assignees
 	toSerialize["created_by_actor"] = o.CreatedByActor
@@ -289,6 +319,7 @@ func (o *Task) UnmarshalJSON(data []byte) (err error) {
 		"content_plaintext",
 		"deadline_at",
 		"is_completed",
+		"completed_at",
 		"linked_records",
 		"assignees",
 		"created_by_actor",
